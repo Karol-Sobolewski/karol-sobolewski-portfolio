@@ -25,6 +25,7 @@ const Component = ({ className, children }) => {
     document.addEventListener(`scroll`, (event) => {
       sections.forEach(isInViewport);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   });
   return (
     <div className={clsx(className, styles.root)}>
@@ -40,6 +41,9 @@ const Component = ({ className, children }) => {
         </div>
         <div id="skills" className={styles.section}>
           skills
+        </div>
+        <div id="uses" className={styles.section}>
+          uses
         </div>
         <div id="contact" className={styles.section}>
           contact

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import { AnimatedSwitch } from 'react-router-transition';
 // import { Container, Row, Col } from 'react-bootstrap';
 import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
@@ -20,19 +21,24 @@ const App = () => {
     <>
       <div className={styles.app}>
         <BrowserRouter>
-          {/* <ScrollToTop /> */}
           <MainLayout>
-            {/* <AnimatedSwitch
-              atEnter={{ opacity: 0 }}
-              atLeave={{ opacity: 0 }}
-              atActive={{ opacity: 1 }}
-              className={styles.switchWrapper}
-            > */}
             <Switch>
               <Route exact path="/" component={() => <HomePage />} />
-              {/* <Route exact path="/uses" component={() => <Uses />} /> */}
-              <Route exact path="/contact" component={() => <Contact />} />
-              {/* </AnimatedSwitch> */}
+              <Route exact path="/about">
+                <Redirect to="/#about" />
+              </Route>
+              <Route exact path="/projects">
+                <Redirect to="/#projects" />
+              </Route>
+              <Route exact path="/skills">
+                <Redirect to="/#skills" />
+              </Route>
+              <Route exact path="/uses">
+                <Redirect to="/#uses" />
+              </Route>
+              <Route exact path="/contact">
+                <Redirect to="/#contact" />
+              </Route>
               <Route component={NotFound} />
             </Switch>
           </MainLayout>

@@ -17,6 +17,7 @@ const Component = ({ className, children }) => {
   const activeLink = useSelector((state) => state.activeLink.data);
   useEffect(() => {
     // dispatch(actionName(`whatToDispatch`));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <nav className={clsx(className, styles.root)}>
@@ -25,9 +26,8 @@ const Component = ({ className, children }) => {
           <NavHashLink
             smooth
             to="/#about"
-            // activeClassName={styles.active}
             className={`${styles.navLink} ${
-              activeLink === `about` ? styles.navLink__f : ``
+              activeLink === `about` ? styles.navLink__active : ``
             }`}
           >
             <img
@@ -38,16 +38,14 @@ const Component = ({ className, children }) => {
             />
             about
           </NavHashLink>
-          {/* </div> */}
         </Col>
         <Col className={styles.navCol}>
           <NavHashLink
             smooth
             to="/#projects"
             className={`${styles.navLink} ${
-              activeLink === `projects` ? styles.navLink__f : ``
+              activeLink === `projects` ? styles.navLink__active : ``
             }`}
-            // activeClassName={active ? styles.active : null}
           >
             <img
               type="image/svg+xml"
@@ -63,9 +61,8 @@ const Component = ({ className, children }) => {
             smooth
             to="/#skills"
             className={`${styles.navLink} ${
-              activeLink === `skills` ? styles.navLink__f : ``
+              activeLink === `skills` ? styles.navLink__active : ``
             }`}
-            // activeClassName={activeLink == `skills` ? styles.active : null} //eslint-disable-line
           >
             <img
               type="image/svg+xml"
@@ -78,9 +75,11 @@ const Component = ({ className, children }) => {
         </Col>
         <Col className={styles.navCol}>
           <NavHashLink
-            to="/uses"
-            activeClassName={styles.active}
-            className={styles.navLink}
+            smooth
+            to="/#uses"
+            className={`${styles.navLink} ${
+              activeLink === `uses` ? styles.navLink__active : ``
+            }`}
           >
             <img
               type="image/svg+xml"
@@ -95,9 +94,8 @@ const Component = ({ className, children }) => {
           <NavHashLink
             smooth
             to="/#contact"
-            // activeClassName={activeLink == `contact` ? styles.active : null} //eslint-disable-line
             className={`${styles.navLink} ${
-              activeLink === `contact` ? styles.navLink__f : ``
+              activeLink === `contact` ? styles.navLink__active : ``
             }`}
           >
             <img
