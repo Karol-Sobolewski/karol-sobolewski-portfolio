@@ -5,33 +5,26 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { Container, Row, Col } from 'react-bootstrap';
+import { NavHashLink } from 'react-router-hash-link';
 import styles from './Logo.module.scss';
 
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`Logo`);
-  // const dispatch = useDispatch();
-  /* <NavHashLink
-            smooth
-            to="/#"
-            activeClassName="selected"
-            activeStyle={styles.active}
-          >
-            Home
-          </NavHashLink> */
-
   useEffect(() => {
     // dispatch(actionName(`whatToDispatch`));
   }, []);
   return (
     <div className={clsx(className, styles.root)}>
-      <img
-        type="image/svg+xml"
-        src="/images/logo.svg"
-        className={styles.logoImg}
-        aria-label="Logo"
-      />
+      <NavHashLink smooth to="/#">
+        <img
+          type="image/svg+xml"
+          src="/images/logo.svg"
+          className={styles.logoImg}
+          aria-label="Logo"
+        />
+      </NavHashLink>
+
       <main>{children}</main>
     </div>
   );

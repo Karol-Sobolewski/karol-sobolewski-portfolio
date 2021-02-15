@@ -44,6 +44,17 @@
         }
       }
     }
+    .navLink__f {
+      // @extend .navLink;
+      color: $nav-link-active;
+      .navHex {
+        filter: invert(82%) sepia(30%) saturate(1080%) hue-rotate(352deg)
+          brightness(99%) contrast(104%);
+      }
+      // a {
+      //   color: red !important;
+      // };
+    }
     &:hover {
       .navHex {
         filter: invert(82%) sepia(30%) saturate(1080%) hue-rotate(352deg)

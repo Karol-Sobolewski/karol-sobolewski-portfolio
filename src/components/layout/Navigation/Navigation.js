@@ -13,9 +13,8 @@ import styles from './Navigation.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`Navigation`);
   // const dispatch = useDispatch();
-
+  const activeLink = useSelector((state) => state.activeLink.data);
   useEffect(() => {
     // dispatch(actionName(`whatToDispatch`));
   }, []);
@@ -26,8 +25,10 @@ const Component = ({ className, children }) => {
           <NavHashLink
             smooth
             to="/#about"
-            activeClassName={styles.active}
-            className={styles.navLink}
+            // activeClassName={styles.active}
+            className={`${styles.navLink} ${
+              activeLink === `about` ? styles.navLink__f : ``
+            }`}
           >
             <img
               type="image/svg+xml"
@@ -43,8 +44,10 @@ const Component = ({ className, children }) => {
           <NavHashLink
             smooth
             to="/#projects"
-            className={styles.navLink}
-            activeClassName={styles.active}
+            className={`${styles.navLink} ${
+              activeLink === `projects` ? styles.navLink__f : ``
+            }`}
+            // activeClassName={active ? styles.active : null}
           >
             <img
               type="image/svg+xml"
@@ -59,8 +62,10 @@ const Component = ({ className, children }) => {
           <NavHashLink
             smooth
             to="/#skills"
-            className={styles.navLink}
-            activeClassName={styles.active}
+            className={`${styles.navLink} ${
+              activeLink === `skills` ? styles.navLink__f : ``
+            }`}
+            // activeClassName={activeLink == `skills` ? styles.active : null} //eslint-disable-line
           >
             <img
               type="image/svg+xml"
@@ -88,9 +93,12 @@ const Component = ({ className, children }) => {
         </Col>
         <Col className={styles.navCol}>
           <NavHashLink
-            to="/contact"
-            activeClassName={styles.active}
-            className={styles.navLink}
+            smooth
+            to="/#contact"
+            // activeClassName={activeLink == `contact` ? styles.active : null} //eslint-disable-line
+            className={`${styles.navLink} ${
+              activeLink === `contact` ? styles.navLink__f : ``
+            }`}
           >
             <img
               type="image/svg+xml"

@@ -51,7 +51,7 @@ body::after {
   right: 0;
   position: fixed;
   z-index: -1;
-  animation: animStar 500s linear infinite;
+  animation: star 500s linear infinite;
   background-repeat: repeat;
   background-position: 0 0;
   background-size: auto 100%;
@@ -67,7 +67,7 @@ body::before {
   right: 0;
   position: fixed;
   z-index: -1;
-  animation: animStar 450s linear infinite;
+  animation: star 450s linear infinite;
   background-repeat: repeat;
   background-position: 0 0;
   background-size: auto 100%;

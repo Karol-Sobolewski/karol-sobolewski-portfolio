@@ -3,7 +3,11 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import initialState from './initialState';
 
-const reducers = {};
+import linkReducer from './linkRedux';
+
+const reducers = {
+  activeLink: linkReducer,
+};
 
 // add blank reducers for initial state properties without reducers
 Object.keys(initialState).forEach((item) => {

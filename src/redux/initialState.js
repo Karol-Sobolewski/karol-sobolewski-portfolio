@@ -11,4 +11,7 @@ export default {
   descriptions: {
     data: [],
   },
+  activeLink: {
+    data: `about`,
+  },
 };

@@ -15,7 +15,7 @@ import './styles/bootstrap.scss';
 import styles from './App.module.scss';
 
 const App = () => {
-  console.log(`hey`);
+  console.log(`app`);
   return (
     <>
       <div className={styles.app}>
@@ -30,7 +30,7 @@ const App = () => {
             > */}
             <Switch>
               <Route exact path="/" component={() => <HomePage />} />
-              <Route exact path="/uses" component={() => <Uses />} />
+              {/* <Route exact path="/uses" component={() => <Uses />} /> */}
               <Route exact path="/contact" component={() => <Contact />} />
               {/* </AnimatedSwitch> */}
               <Route component={NotFound} />

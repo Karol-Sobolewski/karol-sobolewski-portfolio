@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './HomePage.module.scss';
 
+import { addActiveLink } from '../../../redux/linkRedux';
+
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(window.location.href);
-  // const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(actionName(`whatToDispatch`));
-  }, []);
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < 100) {
+        dispatch(addActiveLink(el.id));
+      }
+    }
+    const sections = document.querySelectorAll(`[class*="HomePage_section"]`);
+
+    document.addEventListener(`scroll`, (event) => {
+      sections.forEach(isInViewport);
+    });
+  });
   return (
     <div className={clsx(className, styles.root)}>
       <Container>
@@ -24,12 +34,15 @@ const Component = ({ className, children }) => {
         </Row>
         <div id="about" className={styles.section}>
           about
-          <div id="stars" />
-          <div id="stars2" />
-          <div id="stars3" />
         </div>
         <div id="projects" className={styles.section}>
           projects
+        </div>
+        <div id="skills" className={styles.section}>
+          skills
+        </div>
+        <div id="contact" className={styles.section}>
+          contact
         </div>
         <main>{children}</main>
       </Container>
