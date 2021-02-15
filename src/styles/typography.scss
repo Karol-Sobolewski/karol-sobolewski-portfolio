@@ -1,0 +1,26 @@
+@import "./settings.scss";
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700");
+
+$font-title: "Fifteen", sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $nav-link;
+  font-family: $font-title;
+  &:hover {
+    text-decoration: none;
+    // color: $nav-link-active;
+  }
+  // &:global(.active) {
+  //   color: blue;
+  // }
+}

@@ -1,18 +1,22 @@
 @import "../../../styles/settings.scss";
 
-.section {
+.root {
   align-items: center;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
   display: flex;
-  min-height: 100vh;
-  justify-content: center;
+  height: 12vh;
+  justify-content: space-around;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
 
-#stars {
-  height: 10vw;
-  width: 10vw;
-  border: 1px solid yellow;
-  content: "";
-}
 /* ExtraExtraLarge Devices, UltraWide Desktops  */
 @media (min-width: 1921px) {
   .root {

@@ -1,0 +1,109 @@
+@import "../../../styles/settings.scss";
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navRow {
+  width: 50%;
+  position: absolute;
+  right: 2.5vw;
+  .navCol {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    .navLink {
+      cursor: pointer;
+      padding: 0 1vw 0 1vw;
+      position: relative;
+      width: auto;
+      .navHex {
+        filter: invert(98%) sepia(22%) saturate(0%) hue-rotate(214deg)
+          brightness(112%) contrast(100%);
+        height: 5vh;
+        left: 0;
+        position: absolute;
+        top: -10%;
+        mask-image: -webkit-gradient(
+          linear,
+          left bottom,
+          right bottom,
+          color-stop(0, rgba(0, 0, 0, 1)),
+          color-stop(0.35, rgba(0, 0, 0, 0.5)),
+          color-stop(0.5, rgba(0, 0, 0, 0)),
+          color-stop(0.65, rgba(0, 0, 0, 0)),
+          color-stop(1, rgba(0, 0, 0, 0))
+        );
+        width: 5vh;
+      }
+      &.active {
+        color: $nav-link-active;
+        .navHex {
+          filter: invert(82%) sepia(30%) saturate(1080%) hue-rotate(352deg)
+            brightness(99%) contrast(104%);
+        }
+      }
+    }
+    &:hover {
+      .navHex {
+        filter: invert(82%) sepia(30%) saturate(1080%) hue-rotate(352deg)
+          brightness(99%) contrast(104%);
+      }
+      a {
+        color: $nav-link-active;
+      }
+    }
+  }
+
+  a {
+    font-size: 2.5vh;
+    font-weight: 700;
+  }
+}
+
+/* ExtraExtraLarge Devices, UltraWide Desktops  */
+@media (min-width: 1921px) {
+  .root {
+  }
+}
+
+/* ExtraLarge Devices, Desktops  */
+@media (min-width: 1200px) and (max-width: 1920px) {
+  .root {
+  }
+}
+/* Large Devices, Laptops, Large Tablets iPad Pro */
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  .root {
+  }
+}
+
+/* Medium Devices, Tablets iPad */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .root {
+  }
+}
+
+/* Small Devices, Small tablets Large Phones */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .root {
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+  .root {
+  }
+}
+
+/* Media pointer*/
+@media (hover: hover) and (pointer: fine) {
+  .root {
+  }
+}
+
+/* Media touchable */
+@media (pointer: coarse) {
+  .root {
+  }
+}

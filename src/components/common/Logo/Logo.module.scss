@@ -1,18 +1,22 @@
 @import "../../../styles/settings.scss";
 
-.section {
-  align-items: center;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
+.root {
+  position: absolute;
+  left: 5vw;
 }
 
-#stars {
-  height: 10vw;
-  width: 10vw;
-  border: 1px solid yellow;
-  content: "";
+.logoImg {
+  background-size: cover;
+  display: inline-block;
+  height: 10vh;
+  width: 10vh;
+  filter: $logo;
+  cursor: pointer;
+  &:hover {
+    filter: $logo-hover;
+  }
 }
+
 /* ExtraExtraLarge Devices, UltraWide Desktops  */
 @media (min-width: 1921px) {
   .root {

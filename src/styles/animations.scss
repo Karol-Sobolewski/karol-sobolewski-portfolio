@@ -113,3 +113,12 @@
     transform: translate3d(-1px, 0, 0);
   }
 }
+
+@keyframes animStar {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -10000px;
+  }
+}

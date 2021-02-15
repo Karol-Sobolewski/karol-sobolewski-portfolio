@@ -2,17 +2,17 @@
 @import "./styles/animations.scss";
 .app {
   text-align: center;
-  .switchWrapper {
-    position: relative;
-    animation: fadein 0.3s;
+  // .switchWrapper {
+  //   position: relative;
+  //   animation: fadein 0.3s;
 
-    > div:nth-child(1) {
-      position: relative;
-      animation: fadein 0.3s;
-    }
-    > div:nth-child(2) {
-      position: absolute;
-      display: none;
-    }
-  }
+  //   > div:nth-child(1) {
+  //     position: relative;
+  //     animation: fadein 0.3s;
+  //   }
+  //   > div:nth-child(2) {
+  //     position: absolute;
+  //     display: none;
+  //   }
+  // }
 }

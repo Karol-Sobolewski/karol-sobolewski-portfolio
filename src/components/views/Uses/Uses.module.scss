@@ -1,18 +1,5 @@
 @import "../../../styles/settings.scss";
 
-.section {
-  align-items: center;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-}
-
-#stars {
-  height: 10vw;
-  width: 10vw;
-  border: 1px solid yellow;
-  content: "";
-}
 /* ExtraExtraLarge Devices, UltraWide Desktops  */
 @media (min-width: 1921px) {
   .root {

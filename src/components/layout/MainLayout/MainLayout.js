@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { Container, Row, Col } from 'react-bootstrap';
+
+import { Header } from '../Header/Header';
+
 import styles from './MainLayout.module.scss';
 
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
@@ -15,17 +18,15 @@ const Component = ({ className, children }) => {
 
   useEffect(() => {
     // dispatch(actionName(`whatToDispatch`));
+    // document.addEventListener(`keydown`, (e) => {
+    //   e.preventDefault();
+    //   console.log(e.key);
+    // });
   }, []);
   return (
     <div className={clsx(className, styles.root)}>
-      <Container>
-        <Row>
-          <Col>
-            <h2>MainLayout</h2>
-          </Col>
-        </Row>
-        <main>{children}</main>
-      </Container>
+      <Header />
+      <div>{children}</div>
     </div>
   );
 };
