@@ -19,12 +19,22 @@ const Component = ({ className, children }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <Container>
-        <Row className={styles.octagonRow}>
-          <div className={styles.octagon} />
-          <div className={styles.octagon} />
-          <div className={styles.octagon} />
-          <div className={styles.octagon} />
-          <div className={styles.octagon} />
+        <Row className={styles.hexRow}>
+          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
+            <div className={styles.hex} />
+          </Col>
+          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
+            <div className={styles.hex} />
+          </Col>
+          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
+            <div className={styles.hex} />
+          </Col>
+          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
+            <div className={styles.hex} />
+          </Col>
+          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
+            <div className={styles.hex} />
+          </Col>
         </Row>
         <main>{children}</main>
       </Container>

@@ -1,21 +1,17 @@
 @import "../../../styles/settings.scss";
 .root {
-  z-index: -1;
-  padding-top: 10vh;
-  .hexRow {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .skillRow {
+    // gap: 5vh;
     align-items: center;
+    // border: 1px solid yellow;
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 5vh;
     justify-content: center;
-    width: 100%;
-    .hex {
-      margin-right: 2.5vw;
-      height: 275px;
-      width: 275px;
-      background: yellow;
-      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    }
+    width: 60vw;
   }
 }
 
@@ -28,15 +24,6 @@
 /* ExtraLarge Devices, Desktops  */
 @media (min-width: 1200px) and (max-width: 1920px) {
   .root {
-  }
-}
-
-@media (max-width: 1200px) {
-  .root {
-    padding-top: 2vh;
-    &:nth-child(2n + 0) {
-      padding-top: 5vh;
-    }
   }
 }
 /* Large Devices, Laptops, Large Tablets iPad Pro */
