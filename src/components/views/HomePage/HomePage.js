@@ -9,6 +9,8 @@ import styles from './HomePage.module.scss';
 
 import { addActiveLink } from '../../../redux/linkRedux';
 
+import { Contact } from '../Contact/Contact';
+
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
@@ -33,6 +35,9 @@ const Component = ({ className, children }) => {
         <Row>
           <Col />
         </Row>
+        <div id="landing" className={styles.section}>
+          landing
+        </div>
         <div id="about" className={styles.section}>
           about
         </div>
@@ -46,7 +51,7 @@ const Component = ({ className, children }) => {
           uses
         </div>
         <div id="contact" className={styles.section}>
-          contact
+          <Contact />
         </div>
         <main>{children}</main>
       </Container>
