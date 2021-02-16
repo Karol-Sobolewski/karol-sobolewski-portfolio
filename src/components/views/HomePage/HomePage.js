@@ -9,6 +9,8 @@ import styles from './HomePage.module.scss';
 
 import { addActiveLink } from '../../../redux/linkRedux';
 
+import { Landing } from '../Landing/Landing';
+import { Projects } from '../Projects/Projects';
 import { Contact } from '../Contact/Contact';
 
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
@@ -36,16 +38,16 @@ const Component = ({ className, children }) => {
           <Col />
         </Row>
         <div id="landing" className={styles.section}>
-          landing
-        </div>
-        <div id="about" className={styles.section}>
-          about
+          <Landing />
         </div>
         <div id="projects" className={styles.section}>
-          projects
+          <Projects />
         </div>
         <div id="skills" className={styles.section}>
           skills
+        </div>
+        <div id="about" className={styles.section}>
+          about
         </div>
         <div id="uses" className={styles.section}>
           uses

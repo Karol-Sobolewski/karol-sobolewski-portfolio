@@ -1,0 +1,109 @@
+@import "../../../styles/settings.scss";
+
+.landingRow {
+  left: 0;
+  width: 90vw;
+  justify-content: space-around;
+  align-items: center;
+  .myPhoto {
+    z-index: -1;
+    // position: absolute;
+    // top: 40%;
+    // left: -35%;
+    &:before {
+      background-color: white;
+      clip-path: polygon(
+        30% 0%,
+        70% 0%,
+        100% 30%,
+        100% 70%,
+        70% 100%,
+        30% 100%,
+        0% 70%,
+        0% 30%
+      );
+      content: "";
+      font-weight: bold;
+      height: 305px;
+      mask-image: -webkit-gradient(
+        linear,
+        left bottom,
+        right bottom,
+        color-stop(0, rgba(0, 0, 0, 0)),
+        color-stop(0.35, rgba(0, 0, 0, 0.4)),
+        color-stop(0.5, rgba(0, 0, 0, 0.5)),
+        color-stop(0.65, rgba(0, 0, 0, 0.5)),
+        color-stop(1, rgba(0, 0, 0, 0))
+      );
+      position: absolute;
+      width: 305px;
+    }
+
+    img {
+      clip-path: polygon(
+        30% 0%,
+        70% 0%,
+        100% 30%,
+        100% 70%,
+        70% 100%,
+        30% 100%,
+        0% 70%,
+        0% 30%
+      );
+      height: 300px;
+      margin-left: 2.5px;
+      margin-top: 2.5px;
+      width: 300px;
+      object-fit: cover;
+      // display: none;
+      // outline: cornsilk 10px solid;
+    }
+  }
+}
+
+/* ExtraExtraLarge Devices, UltraWide Desktops  */
+@media (min-width: 1921px) {
+  .root {
+  }
+}
+
+/* ExtraLarge Devices, Desktops  */
+@media (min-width: 1200px) and (max-width: 1920px) {
+  .root {
+  }
+}
+/* Large Devices, Laptops, Large Tablets iPad Pro */
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  .root {
+  }
+}
+
+/* Medium Devices, Tablets iPad */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .root {
+  }
+}
+
+/* Small Devices, Small tablets Large Phones */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .root {
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+  .root {
+  }
+}
+
+/* Media pointer*/
+@media (hover: hover) and (pointer: fine) {
+  .root {
+  }
+}
+
+/* Media touchable */
+@media (pointer: coarse) {
+  .root {
+  }
+}

@@ -4,6 +4,7 @@ const filesToCache = [
   `/images/logo.svg`,
   `/images/language/paczek.png`,
   `/images/me.jpg`,
+  `/images/me2.jpg`,
   `/images/stars1.png`,
   `/images/stars2.png`,
   `/index.html`,

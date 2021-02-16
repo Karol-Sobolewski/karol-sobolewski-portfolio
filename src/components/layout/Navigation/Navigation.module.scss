@@ -1,13 +1,13 @@
 @import "../../../styles/settings.scss";
 .root {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 .navRow {
-  width: 50%;
   position: absolute;
   right: 2.5vw;
+  width: 50%;
   .navCol {
     align-items: center;
     display: flex;

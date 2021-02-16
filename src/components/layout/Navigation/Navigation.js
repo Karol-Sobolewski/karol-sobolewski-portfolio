@@ -25,23 +25,6 @@ const Component = ({ className, children }) => {
         <Col className={styles.navCol}>
           <NavHashLink
             smooth
-            to="/#about"
-            className={`${styles.navLink} ${
-              activeLink === `about` ? styles.navLink__active : ``
-            }`}
-          >
-            <img
-              type="image/svg+xml"
-              src="/images/hex.svg"
-              className={styles.navHex}
-              aria-label="Hex"
-            />
-            about
-          </NavHashLink>
-        </Col>
-        <Col className={styles.navCol}>
-          <NavHashLink
-            smooth
             to="/#projects"
             className={`${styles.navLink} ${
               activeLink === `projects` ? styles.navLink__active : ``
@@ -71,6 +54,23 @@ const Component = ({ className, children }) => {
               aria-label="Hex"
             />
             skills
+          </NavHashLink>
+        </Col>
+        <Col className={styles.navCol}>
+          <NavHashLink
+            smooth
+            to="/#about"
+            className={`${styles.navLink} ${
+              activeLink === `about` ? styles.navLink__active : ``
+            }`}
+          >
+            <img
+              type="image/svg+xml"
+              src="/images/hex.svg"
+              className={styles.navHex}
+              aria-label="Hex"
+            />
+            about
           </NavHashLink>
         </Col>
         <Col className={styles.navCol}>
