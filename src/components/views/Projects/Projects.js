@@ -19,10 +19,12 @@ const Component = ({ className, children }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <Container>
-        <Row>
-          <Col>
-            <h2>Projects</h2>
-          </Col>
+        <Row className={styles.octagonRow}>
+          <div className={styles.octagon} />
+          <div className={styles.octagon} />
+          <div className={styles.octagon} />
+          <div className={styles.octagon} />
+          <div className={styles.octagon} />
         </Row>
         <main>{children}</main>
       </Container>
