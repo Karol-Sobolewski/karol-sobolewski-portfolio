@@ -6,13 +6,13 @@
     align-items: center;
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 5vh;
+    gap: 3vw;
     justify-content: center;
     width: 100%;
     .hex {
-      margin-right: 2.5vw;
-      height: 275px;
-      width: 275px;
+      // margin-right: 2.5vh;
+      height: 250px;
+      width: 250px;
       background: yellow;
       clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
     }
@@ -31,12 +31,10 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .root {
-    padding-top: 2vh;
-    &:nth-child(2n + 0) {
-      padding-top: 5vh;
-    }
+@media (max-width: 991px) {
+  .root .hexRow .hex {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    width: 300px;
   }
 }
 /* Large Devices, Laptops, Large Tablets iPad Pro */

@@ -1258,6 +1258,33 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@iconify-icons/icomoon-free@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/icomoon-free/-/icomoon-free-1.1.0.tgz#90be98e80dd8efec61f3265cd33ef4c40f6e945d"
+  integrity sha512-LNY/JbhNEfSjXedzWqMx2zZU4KMZzVnQOKokwld0OANBdFqaUAyY9p3pFCoo2uhcfsOxqUNTkX1oaokFPw5YUg==
+
+"@iconify-icons/logos@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/logos/-/logos-1.1.6.tgz#f91fbb99aa8d29f01e2300260c8251a416c54e44"
+  integrity sha512-sEVs8q1RtLD+qFb+Foe6jm99BRWpdHQ2jT3Q30zDMDJ0hmX2U16oevyHH7UCpznlnf/M5noXD+9qvYbCGy1j6Q==
+
+"@iconify-icons/simple-icons@^1.1.12":
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/simple-icons/-/simple-icons-1.1.12.tgz#e1d6d96fd8711b70e9ee7e12c3abef0d31985be2"
+  integrity sha512-CSMsS7h0jESfdhxrLrwI9wZGHHDTq7cFDfXuSNGjX83/nbKc3oDlOgMRLzr0TmFDJ6SUCNGqs7NATInPFt42sQ==
+
+"@iconify/react@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-1.1.4.tgz#c778eddbaf196e55705d0bedff00d039dc1de8d3"
+  integrity sha512-oxq8IMOq8q3nKGiDHbQPC8FcFuBsKve68JWBo140d5LRnj0bv5TB/FE/y01ZSvEZ7PlI2HIrnb2qivPN8kTDgw==
+
+"@icons-pack/react-simple-icons@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@icons-pack/react-simple-icons/-/react-simple-icons-4.0.0.tgz#da5d613b73dd7f709a5e225d5fc52e1bc7f717f0"
+  integrity sha512-vNAKspB1VoDlYLaBJo99cdbNmyjsr0BmYRvmFlAAMgHGaTp05KmNL14op+TQTukUr5IoBhmbsaIFXa0DVjwNZg==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
