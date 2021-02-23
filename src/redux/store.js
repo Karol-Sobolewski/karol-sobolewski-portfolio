@@ -4,11 +4,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import initialState from './initialState';
 
 import menuReducer from './menuRedux';
+import projectReducer from './projectRedux';
 import linkReducer from './linkRedux';
 
 const reducers = {
   activeLink: linkReducer,
   menu: menuReducer,
+  projects: projectReducer,
 };
 
 // add blank reducers for initial state properties without reducers

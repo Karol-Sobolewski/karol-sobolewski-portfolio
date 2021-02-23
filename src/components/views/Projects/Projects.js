@@ -13,7 +13,7 @@ import { ProjectForm } from '../../common/ProjectForm/ProjectForm';
 const Component = ({ className, children }) => {
   console.log(`Projects`);
   // const dispatch = useDispatch();
-
+  const projects = useSelector((state) => state.projects.data);
   useEffect(() => {
     // dispatch(actionName(`whatToDispatch`));
   }, []);
@@ -21,37 +21,11 @@ const Component = ({ className, children }) => {
     <div className={clsx(className, styles.root)}>
       <Container>
         <Row className={styles.hexRow}>
-          {/* <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
-            <div className={styles.hex}>
-              <img src="/images/projects/cookie.svg" alt="project-2" />
-              <p>Cookie Go</p>
-            </div>
-          </Col>
-          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
-            <div className={styles.hex}>
-              <img src="/images/projects/furniture.png" alt="project-2" />
-            </div>
-          </Col>
-          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
-            <div className={styles.hex}>
-              <p>Center for Systemic Risk Analysis</p>
-            </div>
-          </Col>
-          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
-            <div className={styles.hex}>
-              <img src="/images/projects/cmclogo.svg" alt="project-3" />
-              <p>Cracow Maya Conference</p>
-            </div>
-          </Col> */}
-          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
-            <ProjectForm />
-          </Col>
-          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
-            <ProjectForm />
-          </Col>
-          <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
-            <ProjectForm />
-          </Col>
+          {projects.map((item) => (
+            <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
+              <ProjectForm project={item} />
+            </Col>
+          ))}
         </Row>
         <main>{children}</main>
       </Container>

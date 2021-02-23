@@ -2,13 +2,13 @@ export default {
   menu: {
     data: [],
   },
-  photos: {
+  projects: {
+    data: [],
+  },
+  skills: {
     data: [],
   },
   categories: {
-    data: [],
-  },
-  projects: {
     data: [],
   },
   activeLink: {

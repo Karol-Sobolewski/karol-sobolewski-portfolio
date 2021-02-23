@@ -4,6 +4,7 @@ const path = require(`path`);
 const mongoose = require(`mongoose`);
 
 const menusRoutes = require(`./routes/menus.routes`);
+const projectRoutes = require(`./routes/projects.routes`);
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, `../build`)));
 
 /* API ENDPOINTS */
 app.use(`/api`, menusRoutes);
+app.use(`/api`, projectRoutes);
 
 /* REACT WEBSITE */
 app.use(`*`, (req, res) => {

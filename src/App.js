@@ -7,6 +7,7 @@ import { AnimatedSwitch } from 'react-router-transition';
 // import { Container, Row, Col } from 'react-bootstrap';
 import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
 import { fetchMenu } from './redux/menuRedux';
+import { fetchProjects } from './redux/projectRedux';
 
 import { Contact } from './components/views/Contact/Contact';
 import { HomePage } from './components/views/HomePage/HomePage';
@@ -18,16 +19,13 @@ import { Uses } from './components/views/Uses/Uses';
 import './styles/bootstrap.scss';
 import styles from './App.module.scss';
 
-function fetchData() {
-  return Promise.all([fetchMenu()]).then(([user, posts]) => ({ user, posts }));
-}
-
 const App = () => {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu.data);
   useEffect(() => {
     dispatch(fetchMenu());
+    dispatch(fetchProjects());
   }, []);
 
   useEffect(() => {

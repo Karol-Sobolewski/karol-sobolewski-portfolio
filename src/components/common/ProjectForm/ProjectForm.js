@@ -12,10 +12,7 @@ import styles from './ProjectForm.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 import { Button } from '../Button/Button';
 
-const project = {
-  title: `hey`,
-};
-const Component = ({ className, children }) => {
+const Component = ({ className, children, project }) => {
   const [rotate, setRotate] = useState(false);
   const useClickOutsideOfprojectBox = (ref) => {
     useEffect(() => {
@@ -56,28 +53,36 @@ const Component = ({ className, children }) => {
             }
           >
             <div className={styles.projectImage}>
-              <img src="/images/projects/cookie.svg" alt="project-2" />
-              <p>project name</p>
+              <img src={project.image} alt={project.name} />
+              <p>{project.name}</p>
             </div>
             <div className={styles.projectDescriptionBox}>
               <Row className={styles.descriptionRow}>
-                <a
-                  className="col-6 d-flex justify-content-center align-items-center"
-                  href="https://github.com/"
-                >
-                  <FontAwesomeIcon icon={faGlobe} />
-                  <p className="pl-1 m-0">live</p>
-                </a>
-                <a
-                  className="col-6 d-flex justify-content-center align-items-center"
-                  href="https://github.com/"
-                >
-                  <FontAwesomeIcon icon={faGithub} />
-                  <p className="pl-1 m-0">github</p>
-                </a>
-                <Col className="col-12 d-flex justify-content-center align-items-center">
-                  <p className="p-0 m-0">more</p>
-                </Col>
+                {project.live ? (
+                  <Col className="col-6">
+                    <a
+                      className="d-flex justify-content-center align-items-center"
+                      href={project.live}
+                    >
+                      <FontAwesomeIcon icon={faGlobe} />
+                      <p className="pl-1 m-0">live</p>
+                    </a>
+                  </Col>
+                ) : null}
+                {project.git ? (
+                  <Col className="col-6">
+                    <a
+                      className="col-6 d-flex justify-content-center align-items-center"
+                      href={project.git}
+                    >
+                      <FontAwesomeIcon icon={faGithub} />
+                      <p className="pl-1 m-0">github</p>
+                    </a>
+                  </Col>
+                ) : null}
+                {/* <Col className="col-12 mt-3 d-flex justify-content-center align-items-center">
+                  <Button type="button">more</Button>
+                </Col> */}
               </Row>
             </div>
           </div>
@@ -91,7 +96,7 @@ const Component = ({ className, children }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  // project: PropTypes.object,
+  project: PropTypes.object,
 };
 
 export { Component as ProjectForm, Component as ProjectFormComponent };
