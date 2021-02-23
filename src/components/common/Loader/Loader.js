@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import { Orbitals } from 'react-spinners-css';
+
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { Container, Row, Col } from 'react-bootstrap';
-import { NavHashLink } from 'react-router-hash-link';
-import styles from './Logo.module.scss';
+import styles from './Loader.module.scss';
 
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
   useEffect(() => {
-    // dispatch(actionName(`whatToDispatch`));
+    document.body.style.overflow = `hidden`;
+    return () => (document.body.style.overflow = `unset`);
   }, []);
   return (
     <div className={clsx(className, styles.root)}>
-      <NavHashLink smooth to="/#">
-        <img
-          type="image/svg+xml"
-          src="/images/logo.svg"
-          className={styles.logoImg}
-          aria-label="Logo"
-        />
-      </NavHashLink>
-      <main>{children}</main>
+      <Orbitals color="#ffd025" />
     </div>
   );
 };
@@ -34,4 +27,4 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-export { Component as Logo, Component as LogoComponent };
+export { Component as Loader, Component as LoaderComponent };

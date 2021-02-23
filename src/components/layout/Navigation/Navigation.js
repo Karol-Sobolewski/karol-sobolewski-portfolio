@@ -15,6 +15,8 @@ import styles from './Navigation.module.scss';
 const Component = ({ className, children }) => {
   // const dispatch = useDispatch();
   const activeLink = useSelector((state) => state.activeLink.data);
+  const menu = useSelector((state) => state.menu.data);
+  console.log(`menu`, menu);
   useEffect(() => {
     // dispatch(actionName(`whatToDispatch`));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -22,91 +24,25 @@ const Component = ({ className, children }) => {
   return (
     <nav className={clsx(className, styles.root)}>
       <Row className={styles.navRow}>
-        <Col className={styles.navCol}>
-          <NavHashLink
-            smooth
-            to="/#projects"
-            className={`${styles.navLink} ${
-              activeLink === `projects` ? styles.navLink__active : ``
-            }`}
-          >
-            <img
-              type="image/svg+xml"
-              src="/images/hex.svg"
-              className={styles.navHex}
-              aria-label="Hex"
-            />
-            projects
-          </NavHashLink>
-        </Col>
-        <Col className={styles.navCol}>
-          <NavHashLink
-            smooth
-            to="/#skills"
-            className={`${styles.navLink} ${
-              activeLink === `skills` ? styles.navLink__active : ``
-            }`}
-          >
-            <img
-              type="image/svg+xml"
-              src="/images/hex.svg"
-              className={styles.navHex}
-              aria-label="Hex"
-            />
-            skills
-          </NavHashLink>
-        </Col>
-        <Col className={styles.navCol}>
-          <NavHashLink
-            smooth
-            to="/#about"
-            className={`${styles.navLink} ${
-              activeLink === `about` ? styles.navLink__active : ``
-            }`}
-          >
-            <img
-              type="image/svg+xml"
-              src="/images/hex.svg"
-              className={styles.navHex}
-              aria-label="Hex"
-            />
-            about
-          </NavHashLink>
-        </Col>
-        <Col className={styles.navCol}>
-          <NavHashLink
-            smooth
-            to="/#uses"
-            className={`${styles.navLink} ${
-              activeLink === `uses` ? styles.navLink__active : ``
-            }`}
-          >
-            <img
-              type="image/svg+xml"
-              src="/images/hex.svg"
-              className={styles.navHex}
-              aria-label="Hex"
-            />
-            /uses
-          </NavHashLink>
-        </Col>
-        <Col className={styles.navCol}>
-          <NavHashLink
-            smooth
-            to="/#contact"
-            className={`${styles.navLink} ${
-              activeLink === `contact` ? styles.navLink__active : ``
-            }`}
-          >
-            <img
-              type="image/svg+xml"
-              src="/images/hex.svg"
-              className={styles.navHex}
-              aria-label="Hex"
-            />
-            contact
-          </NavHashLink>
-        </Col>
+        {menu.map((item) => (
+          <Col className={styles.navCol}>
+            <NavHashLink
+              smooth
+              to={`/${item.src}`}
+              className={`${styles.navLink} ${
+                activeLink === `${item.name}` ? styles.navLink__active : ``
+              }`}
+            >
+              <img
+                type="image/svg+xml"
+                src="/images/hex.svg"
+                className={styles.navHex}
+                aria-label="Hex"
+              />
+              {item.name}
+            </NavHashLink>
+          </Col>
+        ))}
       </Row>
     </nav>
   );

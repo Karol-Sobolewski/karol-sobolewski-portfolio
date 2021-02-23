@@ -8,7 +8,7 @@ export default {
   categories: {
     data: [],
   },
-  descriptions: {
+  projects: {
     data: [],
   },
   activeLink: {

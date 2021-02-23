@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import initialState from './initialState';
 
+import menuReducer from './menuRedux';
 import linkReducer from './linkRedux';
 
 const reducers = {
   activeLink: linkReducer,
+  menu: menuReducer,
 };
 
 // add blank reducers for initial state properties without reducers

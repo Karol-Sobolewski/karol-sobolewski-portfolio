@@ -12,7 +12,7 @@ import {
   faWordpressSimple,
   faNodeJs,
 } from '@fortawesome/free-brands-svg-icons';
-import { Icon, InlineIcon } from '@iconify/react';
+import { Icon } from '@iconify/react';
 import reduxIcon from '@iconify-icons/simple-icons/redux';
 import expressIcon from '@iconify-icons/simple-icons/express';
 import mongodbIcon from '@iconify-icons/simple-icons/mongodb';
@@ -28,7 +28,6 @@ import clsx from 'clsx';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './Skills.module.scss';
-
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {

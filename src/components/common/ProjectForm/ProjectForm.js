@@ -6,7 +6,8 @@ import clsx from 'clsx';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectForm.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 import { Button } from '../Button/Button';
@@ -56,18 +57,26 @@ const Component = ({ className, children }) => {
           >
             <div className={styles.projectImage}>
               <img src="/images/projects/cookie.svg" alt="project-2" />
-              <p>project</p>
+              <p>project name</p>
             </div>
             <div className={styles.projectDescriptionBox}>
-              <Row className="w-80">
-                <Col className="col-6">
-                  <p>live</p>
-                </Col>
-                <Col className="col-6">
-                  <p>github</p>
-                </Col>
-                <Col className="col-12">
-                  <p>more</p>
+              <Row className={styles.descriptionRow}>
+                <a
+                  className="col-6 d-flex justify-content-center align-items-center"
+                  href="https://github.com/"
+                >
+                  <FontAwesomeIcon icon={faGlobe} />
+                  <p className="pl-1 m-0">live</p>
+                </a>
+                <a
+                  className="col-6 d-flex justify-content-center align-items-center"
+                  href="https://github.com/"
+                >
+                  <FontAwesomeIcon icon={faGithub} />
+                  <p className="pl-1 m-0">github</p>
+                </a>
+                <Col className="col-12 d-flex justify-content-center align-items-center">
+                  <p className="p-0 m-0">more</p>
                 </Col>
               </Row>
             </div>
