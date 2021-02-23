@@ -9,7 +9,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import styles from './Button.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-const Component = ({ className, type, name, ...otherProps }) => {
+const Component = ({ className, children, type, name, ...otherProps }) => {
   console.log(`Button`);
   // const dispatch = useDispatch();
   // const { loginWithRedirect } = useAuth0();
@@ -19,13 +19,14 @@ const Component = ({ className, type, name, ...otherProps }) => {
   }, []);
   return (
     <button type={type} className={clsx(className, styles.root)} {...otherProps}> {/* eslint-disable-line */}
-      {name}
+      {children}
     </button>
   );
 };
 
 Component.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node,
   type: PropTypes.string,
   name: PropTypes.string,
   fnc: PropTypes.func,

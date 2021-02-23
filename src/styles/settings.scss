@@ -12,10 +12,15 @@ $transition-long: all 0.8s;
 $box-shadow: 0px 0px 25px 10px rgba(255, 255, 255, 0.2);
 $box-shadow-small: 0px 0px 25px 10px rgba(255, 255, 255, 0.1);
 
+$font-title: "Fifteen", sans-serif;
+
 /*Navigation*/
 $nav-link: $white;
 $nav-link-hover: $yellow;
 $nav-link-active: $yellow;
+
+/*Projects*/
+$project-color: $white;
 
 /*Logo*/
 $logo: invert(100%) sepia(0%) saturate(7500%) hue-rotate(274deg)

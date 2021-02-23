@@ -113,7 +113,7 @@ const Component = ({ className, children }) => {
         </Col>
         <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
           <div className={styles.skillIcon}>
-            <Icon icon={websocketIcon} fill="#ffffff" />
+            <Icon icon={websocketIcon} className={styles.iconAlt} />
           </div>
           <p>WebSocket</p>
         </Col>
