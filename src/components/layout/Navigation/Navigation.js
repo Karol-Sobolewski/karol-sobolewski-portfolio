@@ -16,11 +16,17 @@ const Component = ({ className, children }) => {
   // const dispatch = useDispatch();
   const activeLink = useSelector((state) => state.activeLink.data);
   const menu = useSelector((state) => state.menu.data);
-  console.log(`menu`, menu);
+  // console.log(`menu`, menu);
   useEffect(() => {
     // dispatch(actionName(`whatToDispatch`));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const scrollWidthOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = 1;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: `smooth` });
+  };
+
   return (
     <nav className={clsx(className, styles.root)}>
       <Row className={styles.navRow}>
@@ -29,6 +35,7 @@ const Component = ({ className, children }) => {
             <NavHashLink
               smooth
               to={`/${item.src}`}
+              scroll={(el) => scrollWidthOffset(el)}
               className={`${styles.navLink} ${
                 activeLink === `${item.name}` ? styles.navLink__active : ``
               }`}

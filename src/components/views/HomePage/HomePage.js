@@ -13,18 +13,28 @@ import { Landing } from '../Landing/Landing';
 import { Projects } from '../Projects/Projects';
 import { Skills } from '../Skills/Skills';
 import { About } from '../About/About';
+import { Uses } from '../Uses/Uses';
 import { Contact } from '../Contact/Contact';
 
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
   const dispatch = useDispatch();
+  const activeLink = useSelector((state) => state.activeLink.data);
+  const [link, setLink] = useState();
   useEffect(() => {
     function isInViewport(el) {
       const rect = el.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top < 100) {
-        dispatch(addActiveLink(el.id));
+      if (
+        Math.floor(Math.round(rect.bottom)) >= 0 &&
+        Math.floor(Math.round(rect.bottom)) <= rect.height
+      ) {
+        // console.log(el.id);
+        if (activeLink !== el.id) {
+          setLink(el.id);
+        }
       }
+      // console.log(el.id, Math.floor(Math.round(rect.bottom)));
     }
     const sections = document.querySelectorAll(`[class*="HomePage_section"]`);
 
@@ -32,6 +42,10 @@ const Component = ({ className, children }) => {
       sections.forEach(isInViewport);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    dispatch(addActiveLink(link));
   });
   return (
     <div className={clsx(className, styles.root)}>
@@ -52,7 +66,7 @@ const Component = ({ className, children }) => {
           <About />
         </div>
         <div id="uses" className={styles.section}>
-          uses
+          <Uses />
         </div>
         <div id="contact" className={styles.section}>
           <Contact />
