@@ -12,6 +12,7 @@ import { addActiveLink } from '../../../redux/linkRedux';
 import { Landing } from '../Landing/Landing';
 import { Projects } from '../Projects/Projects';
 import { Skills } from '../Skills/Skills';
+import { About } from '../About/About';
 import { Contact } from '../Contact/Contact';
 
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
@@ -48,7 +49,7 @@ const Component = ({ className, children }) => {
           <Skills />
         </div>
         <div id="about" className={styles.section}>
-          about
+          <About />
         </div>
         <div id="uses" className={styles.section}>
           uses

@@ -1,19 +1,19 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  box-shadow: $box-shadow;
-  color: white;
-  font-family: $font-title;
-  position: relative;
   align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
   background: rgba($color: #fff, $alpha: 0.1);
+  box-shadow: $box-shadow;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  color: white;
   display: flex;
   flex-direction: column;
+  font-family: $font-title;
   height: 250px;
   justify-content: center;
+  position: relative;
   width: 250px;
 
   &:after {
@@ -73,9 +73,10 @@
     outline: none;
     flex-direction: column;
     img {
-      width: 125px;
+      cursor: pointer;
       height: 125px;
       object-fit: contain;
+      width: 125px;
     }
   }
   .projectDescriptionBox {
