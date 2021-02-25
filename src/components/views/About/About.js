@@ -10,7 +10,7 @@ import styles from './About.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`About`);
+  // console.log(`About`);
   // const dispatch = useDispatch();
 
   useEffect(() => {

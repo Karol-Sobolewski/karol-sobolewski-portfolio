@@ -48,7 +48,7 @@ const Component = ({ className, children }) => {
     dispatch(addActiveLink(link));
   });
   return (
-    <div className={clsx(className, styles.root)}>
+    <div className={clsx(className, styles.root)} id="homepage">
       <Container>
         <Row>
           <Col />

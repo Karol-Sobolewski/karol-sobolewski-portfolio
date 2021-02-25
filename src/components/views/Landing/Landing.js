@@ -10,7 +10,7 @@ import styles from './Landing.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`Landing`);
+  // console.log(`Landing`);
   // const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,10 +19,10 @@ const Component = ({ className, children }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <Row className={styles.landingRow}>
-        <Col className={styles.myPhoto}>
+        <Col className={`${styles.myPhoto} col-12 col-md-6`}>
           <img src="/images/me2.jpg" alt="me" />
         </Col>
-        <Col>
+        <Col className="col-12 col-md-6">
           <h2>hello there</h2>
           <p>My name is Karol Sobolewski</p>
           <p>I am Junior Web Developer</p>

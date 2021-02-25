@@ -2,6 +2,14 @@
 
 .root {
   margin-top: 10vh;
+  width: 50%;
+  ul {
+    list-style-type: square;
+    li {
+      margin: 3vh 0 3vh 0;
+      text-align: left;
+    }
+  }
 }
 
 /* ExtraExtraLarge Devices, UltraWide Desktops  */

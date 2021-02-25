@@ -10,7 +10,7 @@ import styles from './Button.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children, type, name, ...otherProps }) => {
-  console.log(`Button`);
+  // console.log(`Button`);
   // const dispatch = useDispatch();
   // const { loginWithRedirect } = useAuth0();
 

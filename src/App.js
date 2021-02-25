@@ -48,7 +48,7 @@ const App = () => {
                   <Redirect to="/#projects" />
                 </Route>
                 <Route exact path="/skills">
-                  <Redirect to="/#skills" />
+                  <Redirect to="/#skills" component={() => <HomePage />} />
                 </Route>
                 <Route exact path="/uses">
                   <Redirect to="/#uses" />
@@ -56,7 +56,7 @@ const App = () => {
                 <Route exact path="/contact">
                   <Redirect to="/#contact" />
                 </Route>
-                <Route component={NotFound} />
+                <Route path="*" component={NotFound} />
               </Switch>
             </MainLayout>
           </BrowserRouter>

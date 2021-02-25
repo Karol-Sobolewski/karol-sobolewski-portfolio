@@ -18,7 +18,7 @@ import styles from './Contact.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`Contact`);
+  // console.log(`Contact`);
   // const dispatch = useDispatch();
 
   useEffect(() => {

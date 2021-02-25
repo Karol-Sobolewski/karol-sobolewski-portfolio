@@ -11,7 +11,7 @@ import { ProjectForm } from '../../common/ProjectForm/ProjectForm';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`Projects`);
+  // console.log(`Projects`);
   // const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects.data);
   useEffect(() => {
@@ -22,7 +22,10 @@ const Component = ({ className, children }) => {
       <Container>
         <Row className={styles.hexRow}>
           {projects.map((item) => (
-            <Col className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0">
+            <Col
+              key={item.id}
+              className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0"
+            >
               <ProjectForm project={item} />
             </Col>
           ))}

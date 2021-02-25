@@ -10,7 +10,7 @@ import styles from './NotFound.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`NotFound`);
+  // console.log(`NotFound`);
   // const dispatch = useDispatch();
 
   useEffect(() => {

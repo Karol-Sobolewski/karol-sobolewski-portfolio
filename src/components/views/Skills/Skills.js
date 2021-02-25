@@ -31,7 +31,7 @@ import styles from './Skills.module.scss';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => {
-  console.log(`Skills`);
+  // console.log(`Skills`);
   // const dispatch = useDispatch();
 
   useEffect(() => {
