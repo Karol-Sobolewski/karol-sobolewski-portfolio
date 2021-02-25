@@ -26,9 +26,9 @@ const App = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (menu.length !== 0) {
+    setTimeout(() => {
       setLoaded(true);
-    }
+    }, 500);
   });
   return (
     <>
