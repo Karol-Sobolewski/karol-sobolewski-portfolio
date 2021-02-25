@@ -33,7 +33,7 @@ app.use(`/api`, (req, res) => {
 /* MONGOOSE */
 const dbURI =
   process.env.NODE_ENV === `production`
-    ? `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@cluster0.59fuh.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+    ? `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@cluster0.b9lwr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
     : `mongodb://localhost:27017/portfolioDB`;
 
 mongoose.connect(dbURI, {
