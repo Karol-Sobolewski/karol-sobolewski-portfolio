@@ -1,15 +1,14 @@
-const cacheName = `cookie-go`;
+const cacheName = `app-name`;
 const filesToCache = [
   `/images/hex.svg`,
   `/images/logo.svg`,
-  `/images/language/paczek.png`,
   `/images/me.jpg`,
   `/images/me2.jpg`,
   `/images/stars1.png`,
   `/images/stars2.png`,
   `/index.html`,
 ];
-window.self.addEventListener(`install`, function (e) {
+self.addEventListener(`install`, function (e) {  //eslint-disable-line
   console.log(`[ServiceWorker] Install`);
   e.waitUntil(
     caches.open(cacheName).then(function (cache) {
@@ -18,10 +17,10 @@ window.self.addEventListener(`install`, function (e) {
     })
   );
 });
-window.self.addEventListener(`activate`, (event) => {
-  event.waitUntil(window.self.clients.claim());
+self.addEventListener(`activate`, (event) => {//eslint-disable-line
+  event.waitUntil(self.clients.claim());//eslint-disable-line
 });
-window.self.addEventListener(`fetch`, (event) => {
+self.addEventListener(`fetch`, (event) => {//eslint-disable-line
   event.respondWith(
     caches
       .match(event.request, { ignoreSearch: true })

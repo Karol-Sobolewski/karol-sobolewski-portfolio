@@ -12,14 +12,21 @@ h6 {
 }
 
 a {
-  text-decoration: none;
-  color: $nav-link;
+  color: $link;
   font-family: $font-title;
-  &:hover {
-    text-decoration: none;
-    color: $nav-link-active;
+  text-decoration: none;
+  transition: $transition;
+}
+
+/* Media non-touch  */
+a:hover {
+  text-decoration: none;
+  color: $link-active;
+}
+/*Media touchable*/
+@media (pointer: coarse) {
+  a:active {
+    color: $link-active;
+    transition: 0s;
   }
-  // &:global(.active) {
-  //   color: blue;
-  // }
 }

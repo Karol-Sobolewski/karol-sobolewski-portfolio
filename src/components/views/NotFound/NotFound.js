@@ -1,32 +1,35 @@
-import React, { useEffect } from 'react';
-// import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import { Redirect } from 'react-router';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './NotFound.module.scss';
 
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 const Component = ({ className, children }) => {
-  // console.log(`NotFound`);
-  // const dispatch = useDispatch();
-
+  const [redirect, setRedirect] = useState(false);
   useEffect(() => {
-    // dispatch(actionName(`whatToDispatch`));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const timeOut = setTimeout(() => setRedirect(true), 5000);
+    return () => clearTimeout(timeOut);
+  });
   return (
     <div className={clsx(className, styles.root)}>
-      <Container>
-        <Row>
-          <Col>
-            <h2>NotFound</h2>
-          </Col>
-        </Row>
-        <main>{children}</main>
-      </Container>
+      {redirect ? (
+        <Redirect to="/" />
+      ) : (
+        <Container>
+          <Row>
+            <Col>
+              <div>
+                <h2>Sorry, Page Not Found</h2>
+                <p>You will be redirected automatically in 5 seconds</p>
+                <a href="/">Go to Home Page</a>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      )}
+      <main>{children}</main>
     </div>
   );
 };

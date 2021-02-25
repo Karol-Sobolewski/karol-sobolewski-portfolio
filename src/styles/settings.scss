@@ -14,15 +14,18 @@ $box-shadow-small: 0px 0px 25px 10px rgba(255, 255, 255, 0.1);
 
 $font-title: "Fifteen", sans-serif;
 
+/*Text*/
+$text-color: $white;
+
 /*Button*/
 $button-bg: $white;
 $button-color: $white;
 $button-color-active: $yellow;
 
 /*Navigation*/
-$nav-link: $white;
-$nav-link-hover: $yellow;
-$nav-link-active: $yellow;
+$link: $white;
+$link-hover: $yellow;
+$link-active: $yellow;
 
 /*Projects*/
 $project-color: $white;
@@ -32,3 +35,6 @@ $logo: invert(100%) sepia(0%) saturate(7500%) hue-rotate(274deg)
   brightness(102%) contrast(101%);
 $logo-hover: invert(79%) sepia(86%) saturate(502%) hue-rotate(335deg)
   brightness(100%) contrast(102%);
+
+/*Loader*/
+$loader-color: $white;

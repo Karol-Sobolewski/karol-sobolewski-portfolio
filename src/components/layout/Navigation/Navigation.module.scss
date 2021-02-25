@@ -38,8 +38,7 @@
       }
     }
     .navLink__active {
-      // @extend .navLink;
-      color: $nav-link-active;
+      color: $link-active;
       .navHex {
         filter: invert(82%) sepia(30%) saturate(1080%) hue-rotate(352deg)
           brightness(99%) contrast(104%);
@@ -51,7 +50,7 @@
           brightness(99%) contrast(104%);
       }
       a {
-        color: $nav-link-active;
+        color: $link-active;
       }
     }
   }
@@ -68,7 +67,6 @@
     justify-content: center;
     .burgerButton {
       display: none;
-      // border: 1px solid blue;
     }
   }
 }
@@ -95,11 +93,9 @@
       right: 0;
     }
     .burgerButton {
-      // border-radius: 10%;
       bottom: 2vh;
       color: white !important;
       display: flex;
-      // height: 5vh;
       outline: none;
       position: fixed;
       right: 2vh;
@@ -112,7 +108,6 @@
     }
   }
   .navRow {
-    // filter: blur(4px);
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -120,26 +115,11 @@
     justify-content: center;
     width: 100%;
     .navCol {
-      // justify-content: flex-start;
       width: 60%;
       justify-content: flex-start;
       .navLink .navHex {
         left: -10px;
       }
-    }
-
-    &::after {
-      // content: "";
-      // // z-index: -1;
-      // width: 100vw;
-      // height: 100vh;
-      // // display: flex;
-      // position: fixed;
-      // top: 0;
-      // left: 0;
-      // background: blue;
-      // opacity: 0.2;
-      // filter: blur(4px);
     }
   }
 }

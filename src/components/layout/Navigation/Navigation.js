@@ -1,29 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
 import { NavHashLink } from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { HamburgerSqueeze } from 'react-animated-burgers';
-import { Container, Row, Col } from 'react-bootstrap';
-import smoothscroll from 'smoothscroll-polyfill';
+import { Row, Col } from 'react-bootstrap';
 import styles from './Navigation.module.scss';
 
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
-const Component = ({ className, children }) => {
-  // const dispatch = useDispatch();
+const Component = ({ className }) => {
   const activeLink = useSelector((state) => state.activeLink.data);
   const menu = useSelector((state) => state.menu.data);
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false); //eslint-disable-line
   const [activeRWD, setActiveRWD] = useState(false);
   const homepage = document.getElementById(`homepage`);
-  // console.log(`menu`, menu);
-
   useEffect(() => {
-    // dispatch(actionName(`whatToDispatch`));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (homepage) {
       if (activeRWD) {
         homepage.setAttribute(`style`, `filter: blur(4px)`);
@@ -33,18 +23,6 @@ const Component = ({ className, children }) => {
         document.body.style.overflow = `unset`;
       }
     }
-    // if (homepage) {
-    //     // homepage.setAttribute(`style`, `filter: blur(4px)`);
-    //   } else {
-    //     console.log(`not`);
-    //     // homepage.setAttribute(`style`, `filter: blur(0px)`);
-    //   }
-    // }
-    //   // homepage.setAttribute(`style`, `filter: blur(4px)`);
-    //   console.log(homepage);
-    // } else {
-    // homepage.setAttribute(`style`, `filter: blur(0px)`);
-    // }
   });
   const useOutsideMenu = (ref) => {
     useEffect(() => {
@@ -52,7 +30,6 @@ const Component = ({ className, children }) => {
         if (ref.current && !ref.current.contains(e.target)) {
           setActiveRWD(false);
           setActive(false);
-          // homepage.setAttribute(`style`, `filter: blur(0px)`);
         }
       }
       document.addEventListener(`mousedown`, handleClickOutside);
@@ -71,13 +48,8 @@ const Component = ({ className, children }) => {
   };
 
   const toggleMenuButton = () => {
-    // console.log(activeRWD);
     setActiveRWD(!activeRWD);
-    // homepage.setAttribute(`style`, `filter: blur(4px)`);
-    // console.log(homepage);
   };
-
-  // console.log(activeRWD);
   return (
     <nav
       className={clsx(className, activeRWD ? styles.root__active : styles.root)}
@@ -117,7 +89,6 @@ const Component = ({ className, children }) => {
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 

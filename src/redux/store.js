@@ -13,7 +13,7 @@ const reducers = {
   projects: projectReducer,
 };
 
-// add blank reducers for initial state properties without reducers
+/* Add blank reducers for initial state properties without reducers */
 Object.keys(initialState).forEach((item) => {
   if (item) {
     if (typeof reducers[item] === `undefined`) {
@@ -24,7 +24,7 @@ Object.keys(initialState).forEach((item) => {
 
 const combinedReducers = combineReducers(reducers);
 
-// create store
+/* create store */
 const store = createStore(
   combinedReducers,
   initialState,

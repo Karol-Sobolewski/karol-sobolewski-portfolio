@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 import { Orbitals } from 'react-spinners-css';
 
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import { Container, Row, Col } from 'react-bootstrap';
 import styles from './Loader.module.scss';
 
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
-const Component = ({ className, children }) => {
+const Component = ({ className }) => {
   useEffect(() => {
     document.body.style.overflow = `hidden`;
     return () => (document.body.style.overflow = `unset`);
@@ -23,7 +19,6 @@ const Component = ({ className, children }) => {
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 

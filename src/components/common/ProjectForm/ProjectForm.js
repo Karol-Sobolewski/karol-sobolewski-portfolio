@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectForm.module.scss';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-import { Button } from '../Button/Button';
 
 const Component = ({ className, children, project }) => {
   const [rotate, setRotate] = useState(false);

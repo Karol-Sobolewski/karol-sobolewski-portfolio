@@ -1,6 +1,3 @@
-import Axios from 'axios';
-// import { API_URL } from '../config';
-
 const reducerName = `links`;
 const createActionName = (name) => `app/${reducerName}/${name}`;
 
@@ -13,16 +10,6 @@ export const fetchStarted = (payload) => ({ payload, type: FETCH_START });
 export const fetchSuccess = (payload) => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
 export const addActiveLink = (payload) => ({ payload, type: ACTIVE_LINK });
-
-// export const addOrderRequest = (order) => async (dispatch) => {
-//   dispatch(fetchStarted());
-//   try {
-//     const res = await Axios.post(`${API_URL}/orders`, order);
-//     dispatch(addNewOrder(res.data));
-//   } catch (err) {
-//     dispatch(fetchError(err.message || true));
-//   }
-// };
 
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {

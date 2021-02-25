@@ -16,8 +16,6 @@ import { About } from '../About/About';
 import { Uses } from '../Uses/Uses';
 import { Contact } from '../Contact/Contact';
 
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 const Component = ({ className, children }) => {
   const dispatch = useDispatch();
   const activeLink = useSelector((state) => state.activeLink.data);
@@ -29,16 +27,14 @@ const Component = ({ className, children }) => {
         Math.floor(Math.round(rect.bottom)) >= 0 &&
         Math.floor(Math.round(rect.bottom)) <= rect.height
       ) {
-        // console.log(el.id);
         if (activeLink !== el.id) {
           setLink(el.id);
         }
       }
-      // console.log(el.id, Math.floor(Math.round(rect.bottom)));
     }
     const sections = document.querySelectorAll(`[class*="HomePage_section"]`);
 
-    document.addEventListener(`scroll`, (event) => {
+    document.addEventListener(`scroll`, (event) => { //eslint-disable-line
       sections.forEach(isInViewport);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

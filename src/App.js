@@ -3,18 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
-import { AnimatedSwitch } from 'react-router-transition';
-// import { Container, Row, Col } from 'react-bootstrap';
-import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
 import { fetchMenu } from './redux/menuRedux';
 import { fetchProjects } from './redux/projectRedux';
 
-import { Contact } from './components/views/Contact/Contact';
 import { HomePage } from './components/views/HomePage/HomePage';
 import { Loader } from './components/common/Loader/Loader';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { NotFound } from './components/views/NotFound/NotFound';
-import { Uses } from './components/views/Uses/Uses';
 
 import './styles/bootstrap.scss';
 import styles from './App.module.scss';
@@ -26,8 +21,10 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchMenu());
     dispatch(fetchProjects());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (menu.length !== 0) {
       setLoaded(true);
