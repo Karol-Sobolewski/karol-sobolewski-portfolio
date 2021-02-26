@@ -11,8 +11,8 @@ const Component = ({ className, children }) => (
     <h3>The road so far...</h3>
     <p>I'm 28 years old junior fullstack web developer from Kraków, Poland.</p>
     <p>
-      Since secondary school I was interested in programming, but I went
-      different way and I have became an archaeologist.
+      Since I finished secondary school I have been interested in programming,
+      but I went different way and I have became an archaeologist.
     </p>
     <p>
       In 2015 I went to Guatemala for excavations at Nakum site in northern

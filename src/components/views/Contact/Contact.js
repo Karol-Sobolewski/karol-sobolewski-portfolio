@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
   faInstagram,
@@ -46,6 +46,12 @@ const Component = ({ className, children }) => (
           <a href="mailto:karolsobolewski92@gmail.com">
             <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
             <span className={styles.text}>karolsobolewski92@gmail.com</span>
+          </a>
+        </li>
+        <li>
+          <a href="/Karol_Sobolewski_CV.pdf" download>
+            <FontAwesomeIcon icon={faFile} className={styles.icon} />
+            <span className={styles.text}>My CV</span>
           </a>
         </li>
       </ul>
