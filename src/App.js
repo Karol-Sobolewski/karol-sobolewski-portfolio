@@ -18,6 +18,7 @@ const App = () => {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu.data);
+  const projects = useSelector((state) => state.projects.data);
   useEffect(() => {
     dispatch(fetchMenu());
     dispatch(fetchProjects());
@@ -26,9 +27,9 @@ const App = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    setTimeout(() => {
+    if (menu.length !== 0 && projects.length !== 0) {
       setLoaded(true);
-    }, 500);
+    }
   });
   return (
     <>

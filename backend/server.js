@@ -33,14 +33,14 @@ app.use(`/api`, (req, res) => {
 /* MONGOOSE */
 const dbURI =
   process.env.NODE_ENV === `production`
-    ? `mongodb+srv://karol-sobolewski:zkrerSgIIa3en8bz@cluster0.b9lwr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+    ? `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
     : `mongodb://localhost:27017/portfolioDB`;
 
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
+// zCOp5t51zTM9h1AU
 const db = mongoose.connection;
 db.once(`open`, () => {
   console.log(`Successfully connected to the database`);
