@@ -27,7 +27,7 @@ const App = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (menu.length !== 0 && projects.length !== 0) {
+    if (menu.length !== 0) {
       setLoaded(true);
     }
   });
