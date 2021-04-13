@@ -15,10 +15,10 @@ const Component = ({ className, children }) => {
         <Row className={styles.hexRow}>
           {projects.map((item) => (
             <Col
-              key={item.id}
+              key={item._id}
               className="col-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center p-0"
             >
-              <ProjectForm project={item} />
+              <ProjectForm project={item} key={item._id} />
             </Col>
           ))}
         </Row>

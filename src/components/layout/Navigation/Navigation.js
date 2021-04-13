@@ -63,7 +63,7 @@ const Component = ({ className }) => {
       />
       <Row className={styles.navRow}>
         {menu.map((item) => (
-          <Col key={item.id} className={styles.navCol}>
+          <Col key={item._id} className={styles.navCol}>
             <NavHashLink
               smooth
               to={`/${item.src}`}
