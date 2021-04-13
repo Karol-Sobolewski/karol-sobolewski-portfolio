@@ -46,9 +46,6 @@ const Component = ({ className, children }) => {
   return (
     <div className={clsx(className, styles.root)} id="homepage">
       <Container>
-        <Row>
-          <Col />
-        </Row>
         <div id="landing" className={styles.section}>
           <Landing />
         </div>

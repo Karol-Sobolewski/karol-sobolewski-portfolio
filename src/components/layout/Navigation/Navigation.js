@@ -66,7 +66,7 @@ const Component = ({ className }) => {
           <Col key={item._id} className={styles.navCol}>
             <NavHashLink
               smooth
-              to={`/${item.src}`}
+              to={`/#${item.src}`}
               scroll={(el) => scrollWidthOffset(el)}
               className={`${styles.navLink} ${
                 activeLink === `${item.name}` ? styles.navLink__active : ``
