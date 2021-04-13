@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import styles from './HomePage.module.scss';
 
 import { addActiveLink } from '../../../redux/linkRedux';
