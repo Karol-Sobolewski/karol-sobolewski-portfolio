@@ -1,17 +1,20 @@
 @import "../../../styles/settings.scss";
 
-.section {
-  align-items: center;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
+.root {
+  .section {
+    align-items: center;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  #stars {
+    content: "";
+    height: 10vw;
+    width: 10vw;
+  }
 }
 
-#stars {
-  height: 10vw;
-  width: 10vw;
-  content: "";
-}
 /* ExtraExtraLarge Devices, UltraWide Desktops  */
 @media (min-width: 1921px) {
   .root {

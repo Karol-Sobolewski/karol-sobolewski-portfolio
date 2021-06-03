@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { Container } from 'react-bootstrap';
+import { gsap } from 'gsap';
 import styles from './HomePage.module.scss';
 
 import { addActiveLink } from '../../../redux/linkRedux';
@@ -43,27 +44,84 @@ const Component = ({ className, children }) => {
   useEffect(() => {
     dispatch(addActiveLink(link));
   });
+
+  const landingRef = useRef(null);
+  const projectsRef = useRef(null);
+  const skillsRef = useRef(null);
+  const aboutRef = useRef(null);
+  const usesRef = useRef(null);
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    const [landingElements] = landingRef.current.children;
+    const [projectsElements] = projectsRef.current.children;
+    const [skillsElements] = skillsRef.current.children;
+    const [aboutElements] = aboutRef.current.children;
+    const [usesElements] = usesRef.current.children;
+    const [contactElements] = contactRef.current.children;
+
+    const landingTrigger = document.querySelector(`#landing`);
+    const projectsTrigger = document.querySelector(`#projects`);
+    const skillsTrigger = document.querySelector(`#skills`);
+    const aboutTrigger = document.querySelector(`#about`);
+    const usesTrigger = document.querySelector(`#uses`);
+    const contactTrigger = document.querySelector(`#contact`);
+
+    const landingRow = landingElements.querySelector(`#landingRow`);
+    const landingPhoto = landingRow.children[0];
+    const landingTexts = landingRow.children[1].children;
+    console.log(`projectsTrigger`, projectsTrigger);
+
+    gsap.set([landingPhoto, landingTexts], { autoAlpha: 0 });
+    const timelineLanding = gsap.timeline({
+      delay: 0.3,
+      defaults: {
+        duration: 1,
+        ease: `Power3.easeOut`,
+      },
+      scrollTrigger: {
+        trigger: landingTrigger,
+        start: `top center`,
+      },
+    });
+    timelineLanding
+      .fromTo(
+        landingPhoto,
+        { x: `-100%` },
+        {
+          x: 0,
+          autoAlpha: 1,
+        }
+      )
+      .fromTo(
+        landingTexts,
+        { y: `100%` },
+        { autoAlpha: 1, y: 0, stagger: 0.2 },
+        `<0.2`
+      );
+  }, []);
+
   return (
     <div className={clsx(className, styles.root)} id="homepage">
       <Container>
-        <div id="landing" className={styles.section}>
+        <section id="landing" className={styles.section} ref={landingRef}>
           <Landing />
-        </div>
-        <div id="projects" className={styles.section}>
+        </section>
+        <section id="projects" className={styles.section} ref={projectsRef}>
           <Projects />
-        </div>
-        <div id="skills" className={styles.section}>
+        </section>
+        <section id="skills" className={styles.section} ref={skillsRef}>
           <Skills />
-        </div>
-        <div id="about" className={styles.section}>
+        </section>
+        <section id="about" className={styles.section} ref={aboutRef}>
           <About />
-        </div>
-        <div id="uses" className={styles.section}>
+        </section>
+        <section id="uses" className={styles.section} ref={usesRef}>
           <Uses />
-        </div>
-        <div id="contact" className={styles.section}>
+        </section>
+        <section id="contact" className={styles.section} ref={contactRef}>
           <Contact />
-        </div>
+        </section>
         <main>{children}</main>
       </Container>
     </div>

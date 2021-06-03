@@ -8,7 +8,7 @@ import styles from './Landing.module.scss';
 
 const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
-    <Row className={styles.landingRow}>
+    <Row className={styles.landingRow} id="landingRow">
       <Col className={`${styles.myPhoto} col-12 col-md-6`}>
         <img src="/images/me2.jpg" alt="me" />
       </Col>
@@ -17,7 +17,6 @@ const Component = ({ className, children }) => (
         <p>My name is Karol Sobolewski</p>
         <p>I am Junior Web Developer</p>
       </Col>
-      <Col />
     </Row>
     <main>{children}</main>
   </div>
