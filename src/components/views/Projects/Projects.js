@@ -10,7 +10,7 @@ import { ProjectForm } from '../../common/ProjectForm/ProjectForm';
 const Component = ({ className, children }) => {
   const projects = useSelector((state) => state.projects.data);
   return (
-    <div className={clsx(className, styles.root)}>
+    <div className={clsx(className, styles.root)} id="trigger">
       <Container>
         <Row className={styles.hexRow}>
           {projects.map((item) => (

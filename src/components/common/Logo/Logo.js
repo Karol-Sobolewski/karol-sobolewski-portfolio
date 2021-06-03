@@ -9,6 +9,7 @@ const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
     <NavHashLink smooth to="/#">
       <img
+        id="logo"
         type="image/svg+xml"
         src="/images/logo.svg"
         className={styles.logoImg}

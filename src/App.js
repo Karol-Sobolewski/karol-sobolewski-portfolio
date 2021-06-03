@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { fetchMenu } from './redux/menuRedux';
 import { fetchProjects } from './redux/projectRedux';
 
@@ -15,6 +17,8 @@ import './styles/bootstrap.scss';
 import styles from './App.module.scss';
 
 const App = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu.data);

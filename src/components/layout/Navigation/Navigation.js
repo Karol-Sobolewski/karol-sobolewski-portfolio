@@ -61,7 +61,7 @@ const Component = ({ className }) => {
         isActive={activeRWD}
         onClick={toggleMenuButton}
       />
-      <Row className={styles.navRow}>
+      <Row className={styles.navRow} id="navRow">
         {menu.map((item) => (
           <Col key={item._id} className={styles.navCol}>
             <NavHashLink
