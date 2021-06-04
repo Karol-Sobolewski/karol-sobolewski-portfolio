@@ -10,9 +10,19 @@ import { ProjectForm } from '../../common/ProjectForm/ProjectForm';
 const Component = ({ className, children }) => {
   const projects = useSelector((state) => state.projects.data);
   return (
-    <div className={clsx(className, styles.root)} id="trigger">
-      <Container>
-        <Row className={styles.hexRow}>
+    <div className={clsx(className, styles.root)}>
+      <ul className={styles.honeycomb}>
+        {projects.map((item) => (
+          <li className={styles.honeycomb__cell} key={item._id}>
+            <ProjectForm project={item} />
+          </li>
+        ))}
+        <li
+          className={`${styles.honeycomb__cell} ${styles.honeycomb__hidden}`}
+        />
+      </ul>
+
+      {/* <Row className={styles.hexRow}>
           {projects.map((item) => (
             <Col
               key={item._id}
@@ -21,9 +31,8 @@ const Component = ({ className, children }) => {
               <ProjectForm project={item} key={item._id} />
             </Col>
           ))}
-        </Row>
-        <main>{children}</main>
-      </Container>
+        </Row> */}
+      <main>{children}</main>
     </div>
   );
 };

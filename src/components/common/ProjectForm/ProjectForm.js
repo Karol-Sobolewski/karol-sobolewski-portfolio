@@ -34,6 +34,8 @@ const Component = ({ className, children, project }) => {
     setRotate(false);
   };
 
+  console.log(`project`, project);
+
   return (
     <div
       className={clsx(className, styles.root)}
@@ -53,6 +55,17 @@ const Component = ({ className, children, project }) => {
               <p>{project.name}</p>
             </div>
             <div className={styles.projectDescriptionBox}>
+              <Row className={styles.descriptionRow}>
+                {project.description ? <p>{project.description}</p> : null}
+              </Row>
+              <Row className={styles.descriptionRow}>
+                {project.tech ? (
+                  <div className={styles.descriptionTech}>
+                    <h3>technologies:</h3>
+                    <p>{project.tech}</p>
+                  </div>
+                ) : null}
+              </Row>
               <Row className={styles.descriptionRow}>
                 {project.live ? (
                   <Col className="col-6">
