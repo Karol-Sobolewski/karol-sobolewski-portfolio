@@ -34,8 +34,6 @@ const Component = ({ className, children, project }) => {
     setRotate(false);
   };
 
-  console.log(`project`, project);
-
   return (
     <div
       className={clsx(className, styles.root)}
