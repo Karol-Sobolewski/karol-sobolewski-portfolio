@@ -47,7 +47,7 @@ const Component = ({ className, children }) => {
 
   const landingRef = useRef(null);
   const projectsRef = useRef(null);
-  const skillsRef = useRef(null);
+  // const skillsRef = useRef(null);
   const aboutRef = useRef(null);
   const usesRef = useRef(null);
   const contactRef = useRef(null);
@@ -55,7 +55,7 @@ const Component = ({ className, children }) => {
   useEffect(() => {
     const [landingElements] = landingRef.current.children;
     const [projectsElements] = projectsRef.current.children;
-    const [skillsElements] = skillsRef.current.children;
+    // const [skillsElements] = skillsRef.current.children;
     const [aboutElements] = aboutRef.current.children;
     const [usesElements] = usesRef.current.children;
     const [contactElements] = contactRef.current.children;
@@ -70,9 +70,13 @@ const Component = ({ className, children }) => {
     const landingRow = landingElements.querySelector(`#landingRow`);
     const landingPhoto = landingRow.children[0];
     const landingTexts = landingRow.children[1].children;
-    console.log(`projectsTrigger`, projectsTrigger);
+
+    const projects = projectsElements.children[0].children;
+
+    // console.log(`skillsElements`, skillsElements);
 
     gsap.set([landingPhoto, landingTexts], { autoAlpha: 0 });
+    gsap.set([projects], { visibility: 0 });
     const timelineLanding = gsap.timeline({
       delay: 0.3,
       defaults: {
@@ -99,6 +103,32 @@ const Component = ({ className, children }) => {
         { autoAlpha: 1, y: 0, stagger: 0.2 },
         `<0.2`
       );
+
+    const projectsLanding = gsap.timeline({
+      defaults: {
+        duration: 1,
+        ease: `Power3.easeOut`,
+      },
+      scrollTrigger: {
+        trigger: projectsTrigger,
+        start: `top center`,
+      },
+    });
+    projectsLanding.fromTo(
+      projects,
+      { x: `-100vw` },
+      {
+        x: 0,
+        visibility: 1,
+        stagger: 0.2,
+      }
+    );
+    // .fromTo(
+    //   landingTexts,
+    //   { y: `100%` },
+    //   { autoAlpha: 1, y: 0, stagger: 0.2 },
+    //   `<0.2`
+    // );
   }, []);
 
   return (
@@ -110,7 +140,7 @@ const Component = ({ className, children }) => {
         <section id="projects" className={styles.section} ref={projectsRef}>
           <Projects />
         </section>
-        <section id="skills" className={styles.section} ref={skillsRef}>
+        <section id="skills" className={styles.section}>
           <Skills />
         </section>
         <section id="about" className={styles.section} ref={aboutRef}>

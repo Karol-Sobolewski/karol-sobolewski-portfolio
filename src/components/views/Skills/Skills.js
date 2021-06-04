@@ -1,147 +1,95 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHtml5,
-  faCss3Alt,
-  faJsSquare,
-  faReact,
-  faBootstrap,
-  faWordpressSimple,
-  faNodeJs,
-} from '@fortawesome/free-brands-svg-icons';
-import { Icon } from '@iconify/react';
-import reduxIcon from '@iconify-icons/simple-icons/redux';
-import expressIcon from '@iconify-icons/simple-icons/express';
-import mongodbIcon from '@iconify-icons/simple-icons/mongodb';
-import websocketIcon from '@iconify-icons/logos/websocket';
-import jiraIcon from '@iconify-icons/simple-icons/jira';
-import figmaIcon from '@iconify-icons/simple-icons/figma';
-import adobephotoshopIcon from '@iconify-icons/simple-icons/adobephotoshop';
-import adobeillustratorIcon from '@iconify-icons/simple-icons/adobeillustrator';
-import writeDotAs from '@iconify-icons/simple-icons/write-dot-as';
-
+import React, { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import { gsap } from 'gsap';
 
 import { Row, Col } from 'react-bootstrap';
 import styles from './Skills.module.scss';
 
-const Component = ({ className, children }) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>Languages</h2>
-    <Row className={styles.skillRow}>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <FontAwesomeIcon icon={faHtml5} />
+const Component = ({ className, children }) => {
+  const skillsList = useSelector((state) => state.skills.data);
+  const skillsRef = useRef(null);
+  useEffect(() => {
+    const skillsElements = skillsRef.current.children;
+
+    // eslint-disable-next-line
+    for (const skillsElement of skillsElements) {
+      if (skillsElement.children[0]) {
+        const skillHeading = skillsElement.children[0];
+        const skillContents = skillsElement.children[1].children;
+        gsap.set([skillHeading], { autoAlpha: 0 });
+        const timelineHeadings = gsap.timeline({
+          delay: 0.3,
+          defaults: {
+            duration: 1,
+            ease: `Power3.easeOut`,
+          },
+          scrollTrigger: {
+            trigger: skillHeading,
+            start: `bottom bottom`,
+          },
+        });
+        timelineHeadings.fromTo(
+          skillHeading,
+          { y: `-100%` },
+          {
+            y: 0,
+            autoAlpha: 1,
+            stagger: 0.5,
+          }
+        );
+        for (const skillContent of skillContents) {
+          gsap.set([skillContent], { autoAlpha: 0 });
+          const timelineSkills = gsap.timeline({
+            delay: 0.3,
+            defaults: {
+              duration: 1,
+              ease: `Power3.easeOut`,
+            },
+            scrollTrigger: {
+              trigger: skillContent,
+              start: `bottom bottom`,
+            },
+          });
+          timelineSkills.fromTo(
+            skillContent,
+            { y: `-100%` },
+            {
+              delay: 0.3,
+              y: 0,
+              autoAlpha: 1,
+              stagger: 0.2,
+            }
+          );
+        }
+      }
+    }
+  }, []);
+  return (
+    <div className={clsx(className, styles.root)} ref={skillsRef}>
+      {skillsList.map((skillItem) => (
+        <div className={styles.skillSection} key={skillItem._id}>
+          <h2>{skillItem.heading}</h2>
+          <Row className={styles.skillRow}>
+            {skillItem.skills.map((singleSkill) => (
+              <Col
+                className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}
+                key={singleSkill._id}
+              >
+                <div className={styles.skillIcon}>
+                  <img src={singleSkill.icon} alt={singleSkill.text} />
+                </div>
+                <p>{singleSkill.text}</p>
+              </Col>
+            ))}
+          </Row>
         </div>
-        <p>HTML</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <FontAwesomeIcon icon={faCss3Alt} />
-        </div>
-        <p>CSS</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <FontAwesomeIcon icon={faJsSquare} />
-        </div>
-        <p>JavaScript</p>
-      </Col>
-    </Row>
-    <h2>Tools</h2>
-    <Row className={styles.skillRow}>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <FontAwesomeIcon icon={faReact} />
-        </div>
-        <p>React with hooks</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={reduxIcon} className={styles.skillIcon} />
-        </div>
-        <p>Redux</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <FontAwesomeIcon icon={faBootstrap} />
-        </div>
-        <p>Bootstrap</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <FontAwesomeIcon icon={faWordpressSimple} />
-        </div>
-        <p>WordPress</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <FontAwesomeIcon icon={faNodeJs} />
-        </div>
-        <p>Node.js</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={expressIcon} />
-        </div>
-        <p>Express</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={mongodbIcon} className={styles.skillIcon} />
-        </div>
-        <p>MongoDB</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={mongodbIcon} className={styles.skillIcon} />
-        </div>
-        <p>Mongoose</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={websocketIcon} className={styles.iconAlt} />
-        </div>
-        <p>WebSocket</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={jiraIcon} className={styles.skillIcon} />
-        </div>
-        <p>Jira</p>
-      </Col>
-    </Row>
-    <h2>Design</h2>
-    <Row className={styles.skillRow}>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={figmaIcon} className={styles.skillIcon} />
-        </div>
-        <p>Figma</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={adobephotoshopIcon} className={styles.skillIcon} />
-        </div>
-        <p> Adobe Photoshop</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={adobeillustratorIcon} className={styles.skillIcon} />
-        </div>
-        <p>Adobe Illustrator</p>
-      </Col>
-      <Col className={`${styles.skillCol} col-12 col-md-6 col-lg-4`}>
-        <div className={styles.skillIcon}>
-          <Icon icon={writeDotAs} className={styles.skillIcon} />
-        </div>
-        <p>Birdfont</p>
-      </Col>
-    </Row>
-    <main>{children}</main>
-  </div>
-);
+      ))}
+      <main>{children}</main>
+    </div>
+  );
+};
 
 Component.propTypes = {
   children: PropTypes.node,

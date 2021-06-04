@@ -11,9 +11,9 @@ const Component = ({ className, children }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <ul className={styles.honeycomb}>
-        {projects.map((item) => (
-          <li className={styles.honeycomb__cell} key={item._id}>
-            <ProjectForm project={item} />
+        {projects.map((project) => (
+          <li className={styles.honeycomb__cell} key={project._id}>
+            <ProjectForm project={project} />
           </li>
         ))}
         <li

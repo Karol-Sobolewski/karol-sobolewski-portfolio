@@ -5,12 +5,14 @@ import initialState from './initialState';
 
 import menuReducer from './menuRedux';
 import projectReducer from './projectRedux';
+import skillReducer from './skillRedux';
 import linkReducer from './linkRedux';
 
 const reducers = {
   activeLink: linkReducer,
   menu: menuReducer,
   projects: projectReducer,
+  skills: skillReducer,
 };
 
 /* Add blank reducers for initial state properties without reducers */
