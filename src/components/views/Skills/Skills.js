@@ -45,7 +45,7 @@ const Component = ({ className, children }) => {
             delay: 0.3,
             defaults: {
               duration: 1,
-              ease: `Power3.easeOut`,
+              ease: `Elastic.easeOut`,
             },
             scrollTrigger: {
               trigger: skillContent,
@@ -54,12 +54,11 @@ const Component = ({ className, children }) => {
           });
           timelineSkills.fromTo(
             skillContent,
-            { y: `-100%` },
+            { y: `100%` },
             {
-              delay: 0.3,
+              delay: Math.random() * (0.5 - 0.1) + 0.1,
               y: 0,
               autoAlpha: 1,
-              stagger: 0.2,
             }
           );
         }
