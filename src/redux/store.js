@@ -7,12 +7,14 @@ import menuReducer from './menuRedux';
 import projectReducer from './projectRedux';
 import skillReducer from './skillRedux';
 import linkReducer from './linkRedux';
+import aboutReducer from './aboutRedux';
 
 const reducers = {
   activeLink: linkReducer,
   menu: menuReducer,
   projects: projectReducer,
   skills: skillReducer,
+  about: aboutReducer,
 };
 
 /* Add blank reducers for initial state properties without reducers */

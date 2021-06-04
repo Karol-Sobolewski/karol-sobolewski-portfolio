@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { fetchMenu } from './redux/menuRedux';
 import { fetchProjects } from './redux/projectRedux';
 import { fetchSkills } from './redux/skillRedux';
+import { fetchAbout } from './redux/aboutRedux';
 
 import { HomePage } from './components/views/HomePage/HomePage';
 import { Loader } from './components/common/Loader/Loader';
@@ -25,12 +26,14 @@ const App = () => {
   const menu = useSelector((state) => state.menu.data);
   const projects = useSelector((state) => state.projects.data);
   const skills = useSelector((state) => state.skills.data);
+  const about = useSelector((state) => state.about.data);
+
   useEffect(() => {
     dispatch(fetchMenu());
     dispatch(fetchProjects());
+    dispatch(fetchAbout());
     dispatch(fetchSkills());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {

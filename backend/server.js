@@ -3,9 +3,10 @@ const cors = require(`cors`);
 const path = require(`path`);
 const mongoose = require(`mongoose`);
 
-const menusRoutes = require(`./routes/menus.routes`);
+const menuRoutes = require(`./routes/menu.routes`);
 const projectRoutes = require(`./routes/projects.routes`);
 const skillRoutes = require(`./routes/skills.routes`);
+const aboutRoutes = require(`./routes/about.routes`);
 
 const app = express();
 
@@ -18,9 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, `../build`)));
 
 /* API ENDPOINTS */
-app.use(`/api`, menusRoutes);
+app.use(`/api`, menuRoutes);
 app.use(`/api`, projectRoutes);
 app.use(`/api`, skillRoutes);
+app.use(`/api`, aboutRoutes);
 
 /* REACT WEBSITE */
 app.use(`*`, (req, res) => {

@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { API_URL } from '../config';
 
-const reducerName = `menu`;
+const reducerName = `about`;
 const createActionName = (name) => `app/${reducerName}/${name}`;
 
 const FETCH_START = createActionName(`FETCH_START`);
@@ -12,10 +12,10 @@ export const fetchStarted = (payload) => ({ payload, type: FETCH_START });
 export const fetchSuccess = (payload) => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
 
-export const fetchMenu = () => (dispatch) => {
+export const fetchAbout = () => (dispatch) => {
   dispatch(fetchStarted());
 
-  Axios.get(`${API_URL}/menu`)
+  Axios.get(`${API_URL}/about`)
     .then((res) => {
       dispatch(fetchSuccess(res.data));
     })

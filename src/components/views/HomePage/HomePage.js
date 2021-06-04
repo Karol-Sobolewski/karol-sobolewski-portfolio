@@ -46,18 +46,16 @@ const Component = ({ className, children }) => {
   });
 
   const landingRef = useRef(null);
-  const aboutRef = useRef(null);
   const usesRef = useRef(null);
   const contactRef = useRef(null);
 
   useEffect(() => {
     const [landingElements] = landingRef.current.children;
-    const [aboutElements] = aboutRef.current.children;
+
     const [usesElements] = usesRef.current.children;
     const [contactElements] = contactRef.current.children;
 
     const landingTrigger = document.querySelector(`#landing`);
-    const aboutTrigger = document.querySelector(`#about`);
     const usesTrigger = document.querySelector(`#uses`);
     const contactTrigger = document.querySelector(`#contact`);
 
@@ -106,7 +104,7 @@ const Component = ({ className, children }) => {
         <section id="skills" className={styles.section}>
           <Skills />
         </section>
-        <section id="about" className={styles.section} ref={aboutRef}>
+        <section id="about" className={styles.section}>
           <About />
         </section>
         <section id="uses" className={styles.section} ref={usesRef}>
