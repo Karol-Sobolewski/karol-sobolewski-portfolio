@@ -30,7 +30,7 @@
     "express-static-gzip": "^2.1.0",
     "gsap": "^3.6.1",
     "mongodb": "^3.6.3",
-    "mongoose": "^5.11.1",
+    "mongoose": "^5.12.9",
     "netlify-cli": "^3.10.0",
     "node-sass": "^4.14.0",
     "nodemon": "^2.0.6",
