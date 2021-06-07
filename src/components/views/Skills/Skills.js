@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { Row, Col } from 'react-bootstrap';
 import styles from './Skills.module.scss';
@@ -12,59 +13,85 @@ const Component = ({ className, children }) => {
   const skillsRef = useRef(null);
   useEffect(() => {
     const skillsElements = skillsRef.current.children;
-
-    // eslint-disable-next-line
     for (const skillsElement of skillsElements) {
       if (skillsElement.children[0]) {
         const skillHeading = skillsElement.children[0];
         const skillContents = skillsElement.children[1].children;
-        gsap.set([skillHeading], { autoAlpha: 0 });
-        const timelineHeadings = gsap.timeline({
-          delay: 0.3,
-          defaults: {
-            duration: 1,
-            ease: `Power3.easeOut`,
-          },
-          scrollTrigger: {
-            trigger: skillHeading,
-            start: `bottom bottom`,
-          },
+        gsap.set([skillContents, skillHeading], {
+          y: `100%`,
+          autoAlpha: 0,
         });
-        timelineHeadings.fromTo(
-          skillHeading,
-          { y: `-100%` },
-          {
-            y: 0,
-            autoAlpha: 1,
-            stagger: 0.5,
-          }
-        );
-        for (const skillContent of skillContents) {
-          gsap.set([skillContent], { autoAlpha: 0 });
-          const timelineSkills = gsap.timeline({
-            delay: 0.3,
+        const runOnComplete = () => {
+          ScrollTrigger.batch(skillContents, {
+            start: `top bottom-=100px`,
             defaults: {
-              duration: 1,
-              ease: `Elastic.easeOut`,
+              ease: `bounce`,
             },
-            scrollTrigger: {
-              trigger: skillContent,
-              start: `bottom bottom`,
-            },
+            onEnter: (batch) =>
+              gsap.to(batch, {
+                autoAlpha: 1,
+                duration: 1,
+                ease: `bounce`,
+                stagger: 0.15,
+                y: 0,
+              }),
+            onLeave: (batch) =>
+              gsap.to(batch, {
+                autoAlpha: 0,
+                ease: `bounce`,
+                stagger: 0.15,
+                y: `-100%`,
+              }),
+            onEnterBack: (batch) =>
+              gsap.to(batch, {
+                autoAlpha: 1,
+                delay: 0.5,
+                ease: `bounce`,
+                stagger: 0.15,
+                y: 0,
+              }),
+            onLeaveBack: (batch) =>
+              gsap.to(batch, {
+                autoAlpha: 0,
+                delay: 0.5,
+                ease: `bounce`,
+                stagger: 0.1,
+                y: `100%`,
+              }),
           });
-          timelineSkills.fromTo(
-            skillContent,
-            { y: `100%` },
-            {
-              delay: Math.random() * (0.5 - 0.1) + 0.1,
-              y: 0,
+        };
+        ScrollTrigger.batch(skillHeading, {
+          start: `bottom bottom`,
+          onEnter: (batch) =>
+            gsap.to(batch, {
               autoAlpha: 1,
-            }
-          );
-        }
+              onComplete: runOnComplete,
+              stagger: 0.15,
+              y: 0,
+            }),
+          onLeave: (batch) =>
+            gsap.to(batch, {
+              autoAlpha: 0,
+              stagger: 0.15,
+              y: `-100%`,
+            }),
+          onEnterBack: (batch) =>
+            gsap.to(batch, {
+              autoAlpha: 1,
+              stagger: 0.15,
+              y: 0,
+            }),
+          onLeaveBack: (batch) =>
+            gsap.to(batch, {
+              autoAlpha: 0,
+              stagger: 0.1,
+              y: `100%`,
+            }),
+        });
       }
     }
   }, []);
+
   return (
     <div className={clsx(className, styles.root)} ref={skillsRef}>
       {skillsList.map((skillItem) => (

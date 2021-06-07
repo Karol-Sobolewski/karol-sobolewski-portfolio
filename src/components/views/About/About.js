@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import styles from './About.module.scss';
 
@@ -28,29 +29,32 @@ const Component = ({ className, children }) => {
 
   useEffect(() => {
     const aboutElements = aboutRef.current.children;
-    for (const aboutElement of aboutElements) {
-      console.log(`aboutElements`, aboutElement);
-      gsap.set(aboutElement, { autoAlpha: 0 });
-      const timelineAbout = gsap.timeline({
-        defaults: {
-          duration: 1,
-          delay: 0.3,
-          ease: `Power3.easeOut`,
-        },
-        scrollTrigger: {
-          trigger: aboutElement,
-          start: `top bottom`,
-        },
-      });
-      timelineAbout.fromTo(
-        aboutElement,
-        { y: `100%` },
-        {
-          y: 0,
+    const section = gsap.utils.toArray(aboutElements);
+    gsap.set(section, { y: `100%`, autoAlpha: 0 });
+    ScrollTrigger.batch(section, {
+      start: `top bottom+=50px`,
+      onEnter: (batch) =>
+        gsap.to(batch, {
           autoAlpha: 1,
-        }
-      );
-    }
+          ease: `power3`,
+          y: 0,
+        }),
+      onLeave: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 0,
+          y: `-100%`,
+        }),
+      onEnterBack: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 1,
+          y: 0,
+        }),
+      onLeaveBack: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 0,
+          y: `100%`,
+        }),
+    });
   }, []);
 
   return (

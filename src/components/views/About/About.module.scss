@@ -18,10 +18,11 @@
     width: 80%;
   }
   img {
-    margin: 5vh 0 5vh 0;
-    width: 60%;
-    max-height: 50rem;
+    -webkit-box-shadow: 0px 8px 13px 0px rgba(167, 167, 167, 0.2);
+    box-shadow: 0px 10px 15px 0px rgba(167, 167, 167, 0.2);
+    margin: 2vh 0 2vh 0;
     object-fit: contain;
+    width: 50%;
   }
 }
 

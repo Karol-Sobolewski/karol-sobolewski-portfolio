@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { gsap } from 'gsap';
 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Projects.module.scss';
 import { ProjectForm } from '../../common/ProjectForm/ProjectForm';
 
@@ -12,42 +13,36 @@ const Component = ({ className, children }) => {
   const projectsRef = useRef(null);
   useEffect(() => {
     const projectList = projectsRef.current.children;
-    for (const projectElement of projectList) {
-      const classList = projectElement.classList.value;
-      if (!classList.includes(`hidden`)) {
-        console.log(`delay`, Math.random() * (0.3 - 0.1) + 0.1);
-        gsap.set([projectElement, projectElement.children], { autoAlpha: 0 });
-        const timelineProjects = gsap.timeline({
-          defaults: {
-            duration: 1,
-            ease: `Power3.easeOut`,
-          },
-          scrollTrigger: {
-            trigger: projectElement,
-            start: `center bottom`,
-          },
-        });
-        timelineProjects
-          .fromTo(
-            projectElement,
-            { y: `100%` },
-            {
-              y: 0,
-              autoAlpha: 1,
-              delay: Math.random() * (0.5 - 0.1) + 0.1,
-            }
-          )
-          .fromTo(
-            projectElement.children,
-            { y: `-20%` },
-            {
-              y: 0,
-              autoAlpha: 1,
-            },
-            `<0.2`
-          );
-      }
-    }
+    const section = gsap.utils.toArray(projectList);
+    gsap.set(section, { x: `-100%`, autoAlpha: 0 });
+    ScrollTrigger.batch(section, {
+      start: `bottom bottom`,
+      onEnter: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 1,
+          x: 0,
+          stagger: 0.15,
+          ease: `power3`,
+        }),
+      onLeave: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 0,
+          stagger: 0.15,
+          x: `-100%`,
+        }),
+      onEnterBack: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 1,
+          stagger: 0.15,
+          x: 0,
+        }),
+      onLeaveBack: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 0,
+          x: `-100%`,
+          stagger: 0.1,
+        }),
+    });
   }, []);
 
   return (
