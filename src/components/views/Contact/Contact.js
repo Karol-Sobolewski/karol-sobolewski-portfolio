@@ -16,41 +16,33 @@ const Component = ({ className, children }) => {
   useEffect(() => {
     const contactElements = contactRef.current.children;
     const contactHeading = contactElements[0];
-    const contactContents = contactElements[1].children;
-    gsap.set([contactHeading, contactContents], { autoAlpha: 0, y: `-100%` });
+    gsap.set(contactHeading, { autoAlpha: 0, y: 100 });
     const runOnComplete = () => {
-      ScrollTrigger.batch(contactContents, {
-        start: `top bottom`,
+      const section = gsap.utils.toArray(contactHeading);
+      gsap.set(section, { autoAlpha: 0, y: 100 });
+      ScrollTrigger.batch(section, {
         onEnter: (batch) =>
           gsap.to(batch, {
             autoAlpha: 1,
-            delay: 0.3,
-            duration: 1,
-            stagger: 0.15,
             y: 0,
+            stagger: { each: 0.15 },
+            overwrite: true,
           }),
         onLeave: (batch) =>
-          gsap.to(batch, {
-            autoAlpha: 0,
-            delay: 0.3,
-            stagger: 0.15,
-            y: `-100%`,
-          }),
+          gsap.set(batch, { autoAlpha: 0, y: -100, overwrite: true }),
         onEnterBack: (batch) =>
           gsap.to(batch, {
             autoAlpha: 1,
-            delay: 0.5,
-            stagger: 0.15,
             y: 0,
+            stagger: 0.15,
+            overwrite: true,
           }),
         onLeaveBack: (batch) =>
-          gsap.to(batch, {
-            autoAlpha: 0,
-            delay: 0.5,
-            stagger: 0.1,
-            y: `100%`,
-          }),
+          gsap.set(batch, { autoAlpha: 0, y: 100, overwrite: true }),
       });
+      ScrollTrigger.addEventListener(`refreshInit`, () =>
+        gsap.set(section, { y: 0 })
+      );
     };
     ScrollTrigger.batch(contactHeading, {
       start: `top bottom`,

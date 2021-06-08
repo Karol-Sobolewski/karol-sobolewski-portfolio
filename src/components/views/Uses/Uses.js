@@ -17,13 +17,10 @@ const Component = ({ className, children }) => {
       if (usesElement.children[0]) {
         const usesHeading = usesElement.children[0];
         const usesContents = usesElement.children[1].children;
-        gsap.set([usesHeading, usesContents], {
-          y: `100%`,
-          autoAlpha: 0,
-        });
+        gsap.set([usesHeading, usesContents], { autoAlpha: 0, y: `100%` });
         const runOnComplete = () => {
           ScrollTrigger.batch(usesContents, {
-            start: `bottom bottom`,
+            start: `top bottom-=100px`,
             onEnter: (batch) =>
               gsap.to(batch, {
                 autoAlpha: 1,
@@ -86,7 +83,7 @@ const Component = ({ className, children }) => {
       }
     }
     const usesLink = usesLinkRef.current;
-    gsap.set(usesLink, { autoAlpha: 0, y: `-100%` });
+    gsap.set(usesLink, { autoAlpha: 0 });
 
     const timelineUsesLink = gsap.timeline({
       defaults: {

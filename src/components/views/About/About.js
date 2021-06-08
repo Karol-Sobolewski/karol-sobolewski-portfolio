@@ -30,31 +30,25 @@ const Component = ({ className, children }) => {
   useEffect(() => {
     const aboutElements = aboutRef.current.children;
     const section = gsap.utils.toArray(aboutElements);
-    gsap.set(section, { y: `100%`, autoAlpha: 0 });
+    gsap.set(section, { autoAlpha: 0, y: 100 });
     ScrollTrigger.batch(section, {
-      start: `top bottom+=50px`,
       onEnter: (batch) =>
         gsap.to(batch, {
           autoAlpha: 1,
-          ease: `power3`,
           y: 0,
+          stagger: { each: 0.15 },
+          overwrite: true,
         }),
       onLeave: (batch) =>
-        gsap.to(batch, {
-          autoAlpha: 0,
-          y: `-100%`,
-        }),
+        gsap.set(batch, { autoAlpha: 0, y: -100, overwrite: true }),
       onEnterBack: (batch) =>
-        gsap.to(batch, {
-          autoAlpha: 1,
-          y: 0,
-        }),
+        gsap.to(batch, { autoAlpha: 1, y: 0, stagger: 0.15, overwrite: true }),
       onLeaveBack: (batch) =>
-        gsap.to(batch, {
-          autoAlpha: 0,
-          y: `100%`,
-        }),
+        gsap.set(batch, { autoAlpha: 0, y: 100, overwrite: true }),
     });
+    ScrollTrigger.addEventListener(`refreshInit`, () =>
+      gsap.set(section, { y: 0 })
+    );
   }, []);
 
   return (
