@@ -8,6 +8,7 @@ import projectReducer from './projectRedux';
 import skillReducer from './skillRedux';
 import linkReducer from './linkRedux';
 import aboutReducer from './aboutRedux';
+import usesReducer from './usesRedux';
 
 const reducers = {
   activeLink: linkReducer,
@@ -15,6 +16,7 @@ const reducers = {
   projects: projectReducer,
   skills: skillReducer,
   about: aboutReducer,
+  uses: usesReducer,
 };
 
 /* Add blank reducers for initial state properties without reducers */

@@ -9,6 +9,7 @@ import { fetchMenu } from './redux/menuRedux';
 import { fetchProjects } from './redux/projectRedux';
 import { fetchSkills } from './redux/skillRedux';
 import { fetchAbout } from './redux/aboutRedux';
+import { fetchUses } from './redux/usesRedux';
 
 import { HomePage } from './components/views/HomePage/HomePage';
 import { Loader } from './components/common/Loader/Loader';
@@ -27,18 +28,28 @@ const App = () => {
   const projects = useSelector((state) => state.projects.data);
   const skills = useSelector((state) => state.skills.data);
   const about = useSelector((state) => state.about.data);
+  const uses = useSelector((state) => state.uses.data);
 
   useEffect(() => {
     dispatch(fetchMenu());
     dispatch(fetchProjects());
     dispatch(fetchAbout());
     dispatch(fetchSkills());
+    dispatch(fetchUses());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (menu.length !== 0 && projects.length !== 0 && skills.length !== 0) {
-      setLoaded(true);
+    if (menu && projects && skills && about && uses) {
+      if (
+        menu.length !== 0 &&
+        projects.length !== 0 &&
+        skills.length !== 0 &&
+        about.length !== 0 &&
+        uses.length !== 0
+      ) {
+        setLoaded(true);
+      }
     }
   });
   return (
