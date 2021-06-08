@@ -1,64 +1,110 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import clsx from 'clsx';
+import { gsap } from 'gsap';
 
 import { Container } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons';
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
 import styles from './Contact.module.scss';
 
-const Component = ({ className, children }) => (
-  <div className={clsx(className, styles.root)}>
-    <Container>
-      <h2>You can find me here:</h2>
-      <ul>
-        <li>
-          <a href="https://github.com/Karol-Sobolewski">
-            <FontAwesomeIcon icon={faGithub} className={styles.icon} />
-            <span className={styles.text}>karol-sobolewski</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/karoljsobolewski/">
-            <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
-            <span className={styles.text}>karoljsobolewski</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/struggling_with_web_dev/">
-            <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
-            <span className={styles.text}>struggling_with_web_dev</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/K_J_Sobolewski">
-            <FontAwesomeIcon icon={faTwitter} className={styles.icon} />
-            <span className={styles.text}>K_J_Sobolewski</span>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:karolsobolewski92@gmail.com">
-            <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
-            <span className={styles.text}>karolsobolewski92@gmail.com</span>
-          </a>
-        </li>
-        <li>
-          <a href="/Karol_Sobolewski_CV.pdf" download>
-            <FontAwesomeIcon icon={faFile} className={styles.icon} />
-            <span className={styles.text}>My CV</span>
-          </a>
-        </li>
-      </ul>
-      <main>{children}</main>
-    </Container>
-  </div>
-);
+const Component = ({ className, children }) => {
+  const contact = useSelector((state) => state.contact.data)[0];
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    const contactElements = contactRef.current.children;
+    const contactHeading = contactElements[0];
+    const contactContents = contactElements[1].children;
+    gsap.set([contactHeading, contactContents], { autoAlpha: 0, y: `-100%` });
+    const runOnComplete = () => {
+      ScrollTrigger.batch(contactContents, {
+        start: `top bottom`,
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            autoAlpha: 1,
+            delay: 0.3,
+            duration: 1,
+            stagger: 0.15,
+            y: 0,
+          }),
+        onLeave: (batch) =>
+          gsap.to(batch, {
+            autoAlpha: 0,
+            delay: 0.3,
+            stagger: 0.15,
+            y: `-100%`,
+          }),
+        onEnterBack: (batch) =>
+          gsap.to(batch, {
+            autoAlpha: 1,
+            delay: 0.5,
+            stagger: 0.15,
+            y: 0,
+          }),
+        onLeaveBack: (batch) =>
+          gsap.to(batch, {
+            autoAlpha: 0,
+            delay: 0.5,
+            stagger: 0.1,
+            y: `100%`,
+          }),
+      });
+    };
+    ScrollTrigger.batch(contactHeading, {
+      start: `top bottom`,
+      onEnter: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 1,
+          onComplete: runOnComplete,
+          stagger: 0.15,
+          y: 0,
+        }),
+      onLeave: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 0,
+          stagger: 0.15,
+          y: `-100%`,
+        }),
+      onEnterBack: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 1,
+          stagger: 0.15,
+          y: 0,
+        }),
+      onLeaveBack: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 0,
+          stagger: 0.1,
+          y: `100%`,
+        }),
+    });
+  }, []);
+  return (
+    <div className={clsx(className, styles.root)}>
+      <Container ref={contactRef}>
+        <h2>{contact.heading}</h2>
+        <ul>
+          {contact.content.map((contactItem) => (
+            <li key={contactItem._id}>
+              <a
+                href={contactItem.link}
+                download={contactItem._linkType === `file`}
+              >
+                <div className={styles.icon}>
+                  <img src={contactItem.icon.src} alt={contactItem.icon.alt} />
+                </div>
+                <span className={styles.text}>{contactItem.text}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <main>{children}</main>
+      </Container>
+    </div>
+  );
+};
 
 Component.propTypes = {
   children: PropTypes.node,

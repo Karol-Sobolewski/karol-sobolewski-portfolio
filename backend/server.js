@@ -8,6 +8,7 @@ const projectRoutes = require(`./routes/projects.routes`);
 const skillRoutes = require(`./routes/skills.routes`);
 const aboutRoutes = require(`./routes/about.routes`);
 const usesRoutes = require(`./routes/uses.routes`);
+const contactRoutes = require(`./routes/contact.routes`);
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(`/api`, projectRoutes);
 app.use(`/api`, skillRoutes);
 app.use(`/api`, aboutRoutes);
 app.use(`/api`, usesRoutes);
+app.use(`/api`, contactRoutes);
 
 /* REACT WEBSITE */
 app.use(`*`, (req, res) => {

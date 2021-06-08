@@ -10,10 +10,17 @@
         align-items: center;
         display: flex;
         .icon {
-          font-size: 1.5em;
+          fill: currentcolor;
+          height: 50px;
+          padding-bottom: 5px;
+          position: relative;
+          width: 50px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
         .text {
-          margin-left: 15px;
           font-size: 1em;
         }
       }

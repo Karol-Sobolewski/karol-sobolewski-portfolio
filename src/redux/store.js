@@ -9,6 +9,7 @@ import skillReducer from './skillRedux';
 import linkReducer from './linkRedux';
 import aboutReducer from './aboutRedux';
 import usesReducer from './usesRedux';
+import contactReducer from './contactRedux';
 
 const reducers = {
   activeLink: linkReducer,
@@ -17,6 +18,7 @@ const reducers = {
   skills: skillReducer,
   about: aboutReducer,
   uses: usesReducer,
+  contact: contactReducer,
 };
 
 /* Add blank reducers for initial state properties without reducers */

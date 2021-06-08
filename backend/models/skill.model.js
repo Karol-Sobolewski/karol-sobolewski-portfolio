@@ -5,7 +5,7 @@ const skillSchema = new mongoose.Schema({
   skills: [
     {
       icon: String,
-      Text: String,
+      text: String,
     },
   ],
 });

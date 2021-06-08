@@ -23,22 +23,19 @@ const Component = ({ className, children }) => {
         });
         const runOnComplete = () => {
           ScrollTrigger.batch(usesContents, {
-            start: `top bottom`,
-            defaults: {
-              ease: `bounce`,
-            },
+            start: `bottom bottom`,
             onEnter: (batch) =>
               gsap.to(batch, {
                 autoAlpha: 1,
+                delay: 0.3,
                 duration: 1,
-                ease: `bounce`,
                 stagger: 0.15,
                 y: 0,
               }),
             onLeave: (batch) =>
               gsap.to(batch, {
                 autoAlpha: 0,
-                ease: `bounce`,
+                delay: 0.3,
                 stagger: 0.15,
                 y: `-100%`,
               }),
@@ -46,7 +43,6 @@ const Component = ({ className, children }) => {
               gsap.to(batch, {
                 autoAlpha: 1,
                 delay: 0.5,
-                ease: `bounce`,
                 stagger: 0.15,
                 y: 0,
               }),
@@ -54,7 +50,6 @@ const Component = ({ className, children }) => {
               gsap.to(batch, {
                 autoAlpha: 0,
                 delay: 0.5,
-                ease: `bounce`,
                 stagger: 0.1,
                 y: `100%`,
               }),
@@ -91,8 +86,6 @@ const Component = ({ className, children }) => {
       }
     }
     const usesLink = usesLinkRef.current;
-
-    console.log(`linkRef`, usesLink);
     gsap.set(usesLink, { autoAlpha: 0, y: `-100%` });
 
     const timelineUsesLink = gsap.timeline({
@@ -119,11 +112,14 @@ const Component = ({ className, children }) => {
         ref={usesRef}
       >
         {usesList.map((usesItem) => (
-          <Col className="col-12 col-md-5 m-3 d-flex justify-content-center align-items-center flex-column">
+          <Col
+            key={usesItem._id}
+            className="col-12 col-md-5 m-3 d-flex justify-content-center align-items-center flex-column"
+          >
             <h3>{usesItem.heading}</h3>
             <ul>
               {usesItem.setup.map((setup) => (
-                <li>
+                <li key={setup._id}>
                   <h4>{setup.heading}</h4>
                   <p>{setup.gear}</p>
                 </li>
