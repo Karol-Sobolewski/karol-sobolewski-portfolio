@@ -30,7 +30,7 @@ const Component = ({ className, children }) => {
   useEffect(() => {
     const aboutElements = aboutRef.current.children;
     const section = gsap.utils.toArray(aboutElements);
-    gsap.set(section, { autoAlpha: 0, y: 100 });
+    gsap.set(section, { y: 100 });
     ScrollTrigger.batch(section, {
       onEnter: (batch) =>
         gsap.to(batch, {
