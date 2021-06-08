@@ -29,13 +29,13 @@ const Component = ({ className, children }) => {
                 stagger: 0.15,
                 y: 0,
               }),
-            onLeave: (batch) =>
-              gsap.to(batch, {
-                autoAlpha: 0,
-                delay: 0.3,
-                stagger: 0.15,
-                y: `-100%`,
-              }),
+            // onLeave: (batch) =>
+            //   gsap.to(batch, {
+            //     autoAlpha: 0,
+            //     delay: 0.3,
+            //     stagger: 0.15,
+            //     y: `-100%`,
+            //   }),
             onEnterBack: (batch) =>
               gsap.to(batch, {
                 autoAlpha: 1,
@@ -61,12 +61,12 @@ const Component = ({ className, children }) => {
               stagger: 0.15,
               y: 0,
             }),
-          onLeave: (batch) =>
-            gsap.to(batch, {
-              autoAlpha: 0,
-              stagger: 0.15,
-              y: `-100%`,
-            }),
+          // onLeave: (batch) =>
+          //   gsap.to(batch, {
+          //     autoAlpha: 0,
+          //     stagger: 0.15,
+          //     y: `-100%`,
+          //   }),
           onEnterBack: (batch) =>
             gsap.to(batch, {
               autoAlpha: 1,
