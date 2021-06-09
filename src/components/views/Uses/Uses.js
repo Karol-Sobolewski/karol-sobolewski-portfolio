@@ -92,7 +92,7 @@ const Component = ({ className, children }) => {
       },
       scrollTrigger: {
         trigger: usesLink,
-        toggleActions: `play reset play reverse`,
+        toggleActions: `play none play reverse`,
         start: `top bottom`,
       },
     });
