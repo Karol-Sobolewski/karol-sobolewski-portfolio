@@ -10,7 +10,7 @@
 
 ### 🏠 [Homepage](http://www.sobolewski.tk)
 
-### ✨ [Demo](http://www.sobolewski.tk)
+### ✨ [Live](http://www.sobolewski.tk)
 
 ## Install
 
